@@ -1,0 +1,11 @@
+body {
+    background-color: #dd4242;
+}
+
+.container {
+    padding: 0.5em;
+}
+
+.center {
+	text-align: center;
+}

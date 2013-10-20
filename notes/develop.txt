@@ -1,0 +1,18 @@
+App generated with yeoman and the generator-angular
+
+To create app:
+yo angular
+
+To run app:
+grunt server
+
+To run unit tests:
+# start karma server (opens Chrome)
+karma start
+
+To build:
+grunt build
+
+To update bower dependencies:
+bower prune
+bower update
