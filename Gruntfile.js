@@ -41,6 +41,12 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['copy:styles', 'autoprefixer']
       },
+      stylus: {
+        files: [
+          'app/styles/**/*.styl'
+        ],
+        tasks: ['stylus']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -313,7 +319,18 @@ module.exports = function (grunt) {
           ]
         }
       }
-    }
+    },
+    stylus: {
+      compile: {
+        options: {
+          compress: true,
+          paths: ['node_modules/grunt-contrib-stylus/node_modules']
+        },
+        files: {
+          'app/styles/main.css': ['app/styles/*.styl']
+        }
+      }
+    },
   });
 
   grunt.registerTask('server', function (target) {
@@ -359,4 +376,8 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.registerTask('compass', ['stylus']);
+
 };
