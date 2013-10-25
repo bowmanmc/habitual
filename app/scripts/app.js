@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('habitualApp', ['LocalStorageModule'])
+angular.module('habitualApp', ['ngRoute', 'ngTouch', 'LocalStorageModule'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

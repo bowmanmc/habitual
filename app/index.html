@@ -1,6 +1,7 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+
     <meta charset="utf-8">
 
     <title>Habitual</title>
@@ -8,21 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" 
-        href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+        href="vendor/bootstrap/css/bootstrap.min.css" />
+    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
   </head>
 
   <body ng-app="habitualApp">
 
-    <div class="container" ng-view=""></div>
+    <div ng-view=""></div>
 
     <!-- build:js scripts/libs.js -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="vendor/angular-local-storage.js"></script>
     <!-- endbuild -->
 
@@ -32,5 +33,7 @@
     <script src="scripts/controllers/addform.js"></script>
     <script src="scripts/controllers/startpage.js"></script>
     <!-- endbuild -->
-</body>
+  
+  </body>
+
 </html>

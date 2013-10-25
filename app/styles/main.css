@@ -2,10 +2,28 @@ body {
     background-color: #dd4242;
 }
 
-.container {
-    padding: 0.5em;
+li {
+	list-style: none;
 }
 
 .center {
 	text-align: center;
 }
+
+.chain {
+	background-color: #ccc;
+}
+
+.habit {
+	background-color: rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid #aaa;
+}
+
+.habits {
+	width: 100%;
+}
+.daily-status {
+	text-align: center;
+	width: 20%;
+}
+

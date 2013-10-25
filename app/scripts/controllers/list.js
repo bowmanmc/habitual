@@ -44,4 +44,13 @@ function ($scope, $location, localStorageService) {
 	}
 	// else, we have the stored list of habits and can
 	// render the list page
+
+	// Event Handling
+	$scope.loadDetails = function() {
+		console.log('loading details...');
+	};
+
+	$scope.toggleStatus = function() {
+		console.log('toggling current status...');
+	};
 });

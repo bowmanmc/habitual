@@ -1,6 +1,12 @@
 
-<div class="center">
-
-    <img src="images/logo.png" width="128"/>
-
-</div>
+<table class="habits">
+  <tr ng-repeat="habit in habits">
+    <td ng-click="loadDetails()">
+      <h2>{{habit.text}}</h2>
+      <div class="chain">&nbsp;</div>
+    </td>
+    <td class="daily-status" ng-click="toggleStatus()">
+      <i class="icon-ok icon-white"></i>
+    </td>
+  </tr>
+</table>
