@@ -1,6 +1,8 @@
 
-<table class="habits">
-  <tr ng-repeat="habit in habits">
+<hbt-navbar></hbt-navbar>
+
+<table class="habits content">
+  <tr ng-repeat="habit in habits" class="habit">
     <td ng-click="loadDetails()">
       <h2>{{habit.text}}</h2>
       <div class="chain">&nbsp;</div>

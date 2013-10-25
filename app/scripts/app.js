@@ -13,9 +13,16 @@ angular.module('habitualApp', ['ngRoute', 'ngTouch', 'LocalStorageModule'])
       })
       .when('/start', {
         templateUrl: 'views/start.html',
-        controller: 'StartPageCtrl'
+        controller: 'NavCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .directive('hbtNavbar', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/nav.html',
+      controller: 'NavCtrl'
+    };
   });
