@@ -21,8 +21,11 @@ angular.module('habitualApp', ['ngRoute', 'ngTouch', 'LocalStorageModule'])
   })
   .directive('hbtNavbar', function() {
     return {
-      restrict: 'E',
+      restrict: 'EA',
       templateUrl: 'views/nav.html',
-      controller: 'NavCtrl'
+      controller: 'NavCtrl',
+      link: function (scope, element, attrs) {
+          scope.buttonType = attrs.buttonType;
+      }
     };
   });

@@ -7,4 +7,8 @@ function ($scope, $location) {
 		$location.path('/add');
 	};
 
+	$scope.loadHomeScreen = function() {
+		$location.path('/');
+	};
+
 });

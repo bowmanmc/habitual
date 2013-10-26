@@ -1,15 +1,33 @@
 
-<h1>Make a Habit</h1>
+<hbt-navbar button-type='cancel'></hbt-navbar>
 
+<div class="container-fluid content">
+  <div class="row-fluid">
+    <div class="span12">
+<!-- Habit Add form start -->
+
+<h1>Make a Habit</h1>
 <form role="form" name="addHabitForm">
   <div class="form-group">
+
     <label for="habit-txt">I want to</label>
-    <input type="text" class="form-control" placeholder="" 
-    	ng-model="form_habit" required />
+
+    <input type="text" 
+      class="form-control input-block-level" 
+      placeholder="" 
+    	ng-model="form_habit" 
+      required />
+
     <label>every day.</label>
+
   </div>
   <button type="button" class="btn btn-default btn-lg pull-right"
       ng-click="saveHabit()" ng-disabled="!addHabitForm.$valid">
       Start Tracking
   </button>
 </form>
+
+<!-- Habit Add form end -->
+    </div><!-- span -->
+  </div><!-- row -->
+</div><!-- container -->

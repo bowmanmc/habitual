@@ -3,11 +3,11 @@
 
 <table class="habits content">
   <tr ng-repeat="habit in habits" class="habit">
-    <td ng-click="loadDetails()">
+    <td ng-click="loadDetails(habit.id)">
       <h2>{{habit.text}}</h2>
       <div class="chain">&nbsp;</div>
     </td>
-    <td class="daily-status" ng-click="toggleStatus()">
+    <td class="daily-status" ng-click="toggleStatus(habit.id)">
       <i class="icon-ok icon-white"></i>
     </td>
   </tr>

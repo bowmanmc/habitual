@@ -46,11 +46,11 @@ function ($scope, $location, localStorageService) {
 	// render the list page
 
 	// Event Handling
-	$scope.loadDetails = function() {
-		console.log('loading details...');
+	$scope.loadDetails = function(habitId) {
+		console.log('loading details ' + habitId);
 	};
 
-	$scope.toggleStatus = function() {
-		console.log('toggling current status...');
+	$scope.toggleStatus = function(habitId) {
+		console.log('toggling current status for ' + habitId);
 	};
 });
