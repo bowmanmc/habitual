@@ -9,12 +9,10 @@ function ($scope, $location, localStorageService) {
 		// Go through the local storage keys and pick out 
 		// the habits.
 		var keys = localStorageService.keys();
-		//console.log('keys: ' + keys);
 		var i, key;
 		var len = keys.length;
 		for (i = 0; i < len; i++) {
 			key = keys[i];
-			console.log('checking key: ' + key);
 			if (key.indexOf('habit.') === 0) {
 				$scope.habits.push(localStorageService.get(key));
 			}
@@ -31,11 +29,9 @@ function ($scope, $location, localStorageService) {
 	};
 
 	if (!hasHabitualKeys()) {
-		console.log('No keys defined...');
 		$location.path('/start');
 	}
 	else {
-		console.log('initializing habits...');
 		initializeHabits();
 	}
 
@@ -47,7 +43,7 @@ function ($scope, $location, localStorageService) {
 
 	// Event Handling
 	$scope.loadDetails = function(habitId) {
-		console.log('loading details ' + habitId);
+		$location.path('/habit/' + habitId);
 	};
 
 	$scope.toggleStatus = function(habitId) {

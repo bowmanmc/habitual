@@ -15,6 +15,14 @@ angular.module('habitualApp', ['ngRoute', 'ngTouch', 'LocalStorageModule'])
         templateUrl: 'views/start.html',
         controller: 'NavCtrl'
       })
+      .when('/habit/:habitId', {
+        templateUrl: 'views/details.html',
+        controller: 'HabitDetailsCtrl'
+      })
+      .when('/habit/delete/:habitId', {
+        templateUrl: 'views/delete.html',
+        controller: 'HabitDeleteCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

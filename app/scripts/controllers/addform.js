@@ -6,7 +6,6 @@ function ($scope, $location, localStorageService) {
 	$scope.form_habit = '';
 
 	$scope.saveHabit = function() {
-		console.log('Saving habit...');
 
 		var ctime = new Date().getTime();
 
