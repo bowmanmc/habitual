@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('habitualApp').controller('AddFormCtrl',
+angular.module('habitual').controller('AddFormCtrl',
 function ($scope, $location, localStorageService) {
 
 	$scope.form_habit = '';

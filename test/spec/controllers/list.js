@@ -2,7 +2,7 @@
 
 describe('Controller: ListCtrl', function () {
     var ListCtrl, scope, location, localStorage;
-    beforeEach(module('habitualApp'));
+    beforeEach(module('habitual'));
 
     /** When there is nothing in local storage **/
     beforeEach(inject(function($controller, $rootScope, $location, localStorageService) {

@@ -1,39 +1,35 @@
 'use strict';
 
-angular.module('habitualApp', ['ngRoute', 'ngTouch', 'LocalStorageModule'])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+var app = angular.module('habitual', [
+    'habitual.services.habit',
+    'habitual.directives.navbar',
+    'LocalStorageModule',
+    'ngRoute',
+    'ngTouch'
+]);
+
+app.config(function ($routeProvider) {
+    $routeProvider.when('/', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
-      })
-      .when('/add', {
+    })
+    .when('/add', {
         templateUrl: 'views/add.html',
         controller: 'AddFormCtrl'
-      })
-      .when('/start', {
+    })
+    .when('/start', {
         templateUrl: 'views/start.html',
         controller: 'NavCtrl'
-      })
-      .when('/habit/:habitId', {
+    })
+    .when('/habit/:habitId', {
         templateUrl: 'views/details.html',
         controller: 'HabitDetailsCtrl'
-      })
-      .when('/habit/delete/:habitId', {
+    })
+    .when('/habit/delete/:habitId', {
         templateUrl: 'views/delete.html',
         controller: 'HabitDeleteCtrl'
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-  })
-  .directive('hbtNavbar', function() {
-    return {
-      restrict: 'EA',
-      templateUrl: 'views/nav.html',
-      controller: 'NavCtrl',
-      link: function (scope, element, attrs) {
-          scope.buttonType = attrs.buttonType;
-      }
-    };
-  });
+    });
+});

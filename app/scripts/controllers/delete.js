@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('habitualApp').controller('HabitDeleteCtrl',
+angular.module('habitual').controller('HabitDeleteCtrl',
 function ($scope, $location, $routeParams, localStorageService) {
 
 	$scope.habit = localStorageService.get('habit.' + $routeParams.habitId);

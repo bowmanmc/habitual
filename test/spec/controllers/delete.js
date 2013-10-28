@@ -3,7 +3,7 @@
 describe('Controller: HabitDeleteCtrl', function () {
     var DeleteCtrl, scope, location, localStorage;
     var habitKey = 'habit.1234';
-    beforeEach(module('habitualApp'));
+    beforeEach(module('habitual'));
 
     /** When there is nothing in local storage **/
     beforeEach(inject(function($controller, $rootScope, $location, localStorageService) {

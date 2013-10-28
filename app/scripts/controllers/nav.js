@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('habitualApp').controller('NavCtrl',
+angular.module('habitual').controller('NavCtrl',
 function ($scope, $location) {
 
 	$scope.loadAddScreen = function() {
