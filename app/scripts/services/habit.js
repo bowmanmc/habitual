@@ -6,9 +6,18 @@ var habitServices = angular.module('habitual.services.habit', [
 
 habitServices.service('habitService', function(localStorageService) {
 
+    var idx = 0;
+
+    this.generateId = function() {
+        // Base it off of timestamp and an internal index
+        var result = '' + new Date().getTime() + idx;
+        idx++;
+        return result;
+    };
+
     this.storeNewHabit = function(txt) {
         var now = new Date();
-        var id = now.getTime();
+        var id = this.generateId();
         var key = 'habit.' + id;
 
         var habit = {
@@ -21,6 +30,12 @@ habitServices.service('habitService', function(localStorageService) {
             chain: []
         };
 
+        localStorageService.add(key, habit);
+    };
+
+    this.resetHabit = function(habit) {
+        habit.chain = [];
+        var key = this.getKey(habit.id);
         localStorageService.add(key, habit);
     };
 
