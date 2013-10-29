@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('habitual').controller('HabitDetailsCtrl',
-function ($scope, $location, $routeParams, localStorageService) {
+function ($scope, $location, $routeParams, habitService) {
 
-	$scope.habit = localStorageService.get('habit.' + $routeParams.habitId);
+	$scope.habit = habitService.getHabit($routeParams.habitId);
 
 	$scope.confirmDelete = function(habitId) {
 		$location.path('/habit/delete/' + habitId);
