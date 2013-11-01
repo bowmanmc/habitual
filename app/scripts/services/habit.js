@@ -15,28 +15,35 @@ habitServices.service('habitService', function(localStorageService) {
         return result;
     };
 
-    this.storeNewHabit = function(txt) {
+    this.createNewHabit = function(txt) {
         var now = new Date();
         var id = this.generateId();
-        var key = 'habit.' + id;
-
         var habit = {
             id: id,
             text: txt,
             date_created: now,
             date_started: now,
             last_reset: now,
-            last_update: now,
-            chain: []
+            last_updated: now,
+            chain: {}
         };
 
+        this.saveHabit(habit);
+        return habit;
+    };
+
+    this.saveHabit = function(habit) {
+        var key = this.getKey(habit.id);
+        habit.last_updated = new Date();
         localStorageService.add(key, habit);
     };
 
     this.resetHabit = function(habit) {
-        habit.chain = [];
-        var key = this.getKey(habit.id);
-        localStorageService.add(key, habit);
+        var now = new Date();
+        habit.chain = []; // reset the chain to zero
+        habit.last_reset = now;
+        habit.date_started = now;
+        this.saveHabit(habit);
     };
 
     this.deleteHabit = function(id) {

@@ -14,9 +14,9 @@ describe('Service: HabitService', function () {
 
         // Setup our initial list of habits
         localStorage.clearAll();
-        habitSvc.storeNewHabit('Write tests first.');
-        habitSvc.storeNewHabit('Modularize');
-        habitSvc.storeNewHabit('Rock and Roll');
+        habitSvc.createNewHabit('Write tests first.');
+        habitSvc.createNewHabit('Modularize');
+        habitSvc.createNewHabit('Rock and Roll');
     });
 
     it('Should remove habits', function() {
