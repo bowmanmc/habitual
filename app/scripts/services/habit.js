@@ -16,7 +16,7 @@ habitServices.service('habitService', function(localStorageService) {
     };
 
     this.createNewHabit = function(txt) {
-        var now = new Date();
+        var now = moment().format('YYYY-MM-DD');
         var id = this.generateId();
         var habit = {
             id: id,
@@ -33,14 +33,16 @@ habitServices.service('habitService', function(localStorageService) {
     };
 
     this.saveHabit = function(habit) {
+        console.log('Saving: ' + JSON.stringify(habit));
         var key = this.getKey(habit.id);
-        habit.last_updated = new Date();
+        habit.last_updated = moment().format('YYYY-MM-DD');
         localStorageService.add(key, habit);
     };
 
-    this.resetHabit = function(habit) {
-        var now = new Date();
-        habit.chain = []; // reset the chain to zero
+    this.resetHabit = function(habitId) {
+        var habit = this.getHabit(habitId);
+        var now = moment().format('YYYY-MM-DD');
+        habit.chain = {}; // reset the chain to zero
         habit.last_reset = now;
         habit.date_started = now;
         this.saveHabit(habit);
@@ -83,4 +85,7 @@ habitServices.service('habitService', function(localStorageService) {
         return key;
     };
 
+    this.clearHabitual = function() {
+        localStorageService.clearAll();
+    }
 });

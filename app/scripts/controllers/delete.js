@@ -6,7 +6,6 @@ function ($scope, $location, $routeParams, habitService) {
 	$scope.habit = habitService.getHabit($routeParams.habitId);
 
 	$scope.deleteHabit = function(habitId) {
-        console.log('Deleting habit: ' + habitId);
 		habitService.deleteHabit(habitId);
 		$location.path('/');
 	};

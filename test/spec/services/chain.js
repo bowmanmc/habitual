@@ -36,5 +36,21 @@ describe('Service: ChainService', function () {
         chainSvc.toggle(habit, today);
         expect(habit.chain[today].completed).toBe(false);
     });
+
+    it ('Should fill out chains correctly', function() {
+        var habit = habitSvc.getHabits()[0];
+        var start_date = moment();
+
+        start_date.subtract('days', 5);
+        habit.date_started = start_date;
+        var chain = chainSvc.getFilledOutChain(habit);
+        expect(chain.length).toBe(5);
+
+        start_date = moment();
+        start_date.subtract('days', (chainSvc.MAX_LENGTH + 1));
+        habit.date_started = start_date;
+        chain = chainSvc.getFilledOutChain(habit);
+        expect(chain.length).toBe(chainSvc.MAX_LENGTH);
+    });
     
 });

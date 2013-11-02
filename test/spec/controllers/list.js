@@ -1,19 +1,22 @@
 'use strict';
 
 describe('Controller: ListCtrl', function () {
-    var ListCtrl, scope, location, localStorage;
+
+    var ListCtrl, scope, location, habitSvc;
     beforeEach(module('habitual'));
+    beforeEach(module('habitual.services.habit'));
+    beforeEach(module('habitual.services.chain'));
 
     /** When there is nothing in local storage **/
-    beforeEach(inject(function($controller, $rootScope, $location, localStorageService) {
+    beforeEach(inject(function($controller, $rootScope, $location, habitService, chainService) {
         scope = $rootScope.$new();
         location = $location;
-        localStorage = localStorageService;
-        localStorage.clearAll();
+        habitSvc = habitService;
+        habitSvc.clearHabitual();
         ListCtrl = $controller('ListCtrl', {
             $scope: scope,
             $location: location,
-            localStorageService: localStorage
+            habitService: habitSvc
         });
     }));
 
@@ -23,38 +26,17 @@ describe('Controller: ListCtrl', function () {
         expect(location.path()).toBe('/start');
     });
 
-    /** No habits (keys prefixed with "habit." in localstorage **/
-    beforeEach(inject(function($controller, $rootScope, $location, localStorageService) {
-        scope = $rootScope.$new();
-        location = $location;
-        localStorage = localStorageService;
-        localStorage.clearAll();
-        localStorage.add('unit', 'test');
-        ListCtrl = $controller('ListCtrl', {
-            $scope: scope,
-            $location: location,
-            localStorageService: localStorage
-        });
-    }));
-
-    it('should forward to the start page when there are no habits', function() {
-        expect(location.path()).toBe('/start');
-    });
-
     /** Make sure when there are habits, they are put in the habits array **/
-    beforeEach(inject(function($controller, $rootScope, $location, localStorageService) {
+    beforeEach(inject(function($controller, $rootScope, $location, habitService, chainService) {
         scope = $rootScope.$new();
         location = $location;
-        localStorage = localStorageService;
-        localStorage.clearAll();
-        localStorage.add('habit.' + new Date().getTime(), {
-            id: new Date().getTime(),
-            text: 'unit test'
-        });
+        habitSvc = habitService;
+        habitSvc.clearHabitual();
+        habitSvc.createNewHabit('Write tests first.');
         ListCtrl = $controller('ListCtrl', {
             $scope: scope,
             $location: location,
-            localStorageService: localStorage
+            habitService: habitSvc
         });
     }));
 

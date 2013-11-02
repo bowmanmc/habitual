@@ -1,8 +1,9 @@
 'use strict';
 
 var app = angular.module('habitual', [
-    'habitual.services.habit',
     'habitual.directives.navbar',
+    'habitual.services.chain',
+    'habitual.services.habit',
     'LocalStorageModule',
     'ngRoute',
     'ngTouch'
@@ -28,6 +29,10 @@ app.config(function ($routeProvider) {
     .when('/habit/delete/:habitId', {
         templateUrl: 'views/delete.html',
         controller: 'HabitDeleteCtrl'
+    })
+    .when('/habit/reset/:habitId', {
+        templateUrl: 'views/reset.html',
+        controller: 'HabitResetCtrl'
     })
     .otherwise({
         redirectTo: '/'
