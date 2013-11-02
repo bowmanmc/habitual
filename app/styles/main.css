@@ -1,9 +1,10 @@
 body{background-color:#dd4242}
 li{list-style:none}
 .center{text-align:center}
-.chain{background-color:#ccc}
 .content{margin-top:40px}
 .details-btns{margin-top:3em}
 .habit{background-color:rgba(255,255,255,0.05);border-bottom:1px solid #aaa}
 .habits{width:100%}
 .daily-status{text-align:center;width:20%}
+.link{background-color:#ccc;margin-right:1px;padding-right:5px}
+.link-true{background-color:#0c6}

@@ -33,7 +33,6 @@ habitServices.service('habitService', function(localStorageService) {
     };
 
     this.saveHabit = function(habit) {
-        console.log('Saving: ' + JSON.stringify(habit));
         var key = this.getKey(habit.id);
         habit.last_updated = moment().format('YYYY-MM-DD');
         localStorageService.add(key, habit);

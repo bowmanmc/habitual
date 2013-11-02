@@ -10,6 +10,7 @@ chainServices.service('chainService', function() {
         var now = moment().format('YYYY-MM-DD');
         return {
             completed: false,
+            link_date: now,
             date_created: now,
             last_updated: now
         };
@@ -26,7 +27,9 @@ chainServices.service('chainService', function() {
         else {
             link.completed = true;
         }
-        link.last_updated = new Date();
+        var now = moment().format('YYYY-MM-DD');
+        link.link_date = now;
+        link.last_updated = now;
 
         habit.chain[day] = link;
     };
@@ -55,7 +58,7 @@ chainServices.service('chainService', function() {
             }
         }
 
-        return results;
+        return results.reverse();
     };
 
     this.truncate = function(m) {

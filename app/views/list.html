@@ -2,10 +2,14 @@
 <hbt-navbar></hbt-navbar>
 
 <table class="habits content">
+  <!-- Each Habit -->
   <tr ng-repeat="habit in habits" class="habit">
     <td ng-click="loadDetails(habit.id)">
       <h2>{{habit.text}}</h2>
-      <div class="chain">&nbsp;</div>
+      <div class="chain">
+        <span ng-repeat="link in habit.chain" 
+            class="link link-{{link.completed}}"></span>
+      </div>
     </td>
     <td class="daily-status" ng-click="toggleStatus(habit.id)">
       <i class="icon-ok icon-white"></i>
