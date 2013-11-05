@@ -1,0 +1,80 @@
+/**
+ * Variable Definitions
+ */
+/** Orange
+//$background_color = #FF9537
+$background_color = #FF9000
+$text_color = #FFFCF9
+$navbar_color = rgba(0, 0, 0, 0.85)
+$title_shadow = #403830
+$habit_background = rgba(128, 0, 0, 0.15)
+*/
+//$background_color = #4E94BF
+$background_color = #0950A8
+$text_color = #fff
+$navbar_color = rgba(0, 0, 0, 0.85)
+$title_shadow = #06090c
+$habit_background = rgba(0, 0, 0, 0.0)
+$link_on_color = #35BF00
+$link_off_color = #5B8FE7
+
+/**
+ * Styles
+ */
+body 
+  background-color: $background_color
+  color: $text_color
+
+h2
+    text-shadow: 1px 1px 0 $title_shadow
+
+li
+  list-style: none
+
+.center 
+	text-align: center
+
+.content
+    margin-top: 57px
+
+.details-btns
+	margin-top: 3.0em
+
+.habit
+	background-color: $habit_background
+	border-bottom: 1px solid #aaa
+
+.habits
+	width: 100%
+
+.daily-status
+	text-align: center
+	width: 20%
+
+@keyframes highlight {
+    0% {
+        background-color: #fff
+    }
+    100% {
+        background-color: none;
+    }
+}
+.just-toggled
+    animation: highlight 1s;
+
+.link
+    //background-color: $link_off_color
+    border: 1px solid $link_off_color
+    margin-right: 1px
+    padding-right: 5px
+
+.link-true
+    background-color: $link_on_color
+    border: 1px solid $link_on_color
+    box-shadow: 0 0 3px #0f0
+
+.navbar-inner
+  background-color: $navbar_color
+  background-image: none
+  background-repeat: no-repeat
+  filter: none

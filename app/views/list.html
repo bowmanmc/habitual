@@ -3,16 +3,17 @@
 
 <table class="habits content">
   <!-- Each Habit -->
-  <tr ng-repeat="habit in habits" class="habit">
-    <td ng-click="loadDetails(habit.id)">
+  <tr ng-repeat="habit in habits" class="habit"
+    ng-class="{ 'just-toggled': $index == toggledIndex }">
+    <td class="habit-overview" ng-click="loadDetails(habit.id)">
       <h2>{{habit.text}}</h2>
       <div class="chain">
-        <span ng-repeat="link in habit.chain" 
+        <span ng-repeat="link in habit.chain" id="link_{{link.link_date}}"
             class="link link-{{link.completed}}"></span>
       </div>
     </td>
-    <td class="daily-status" ng-click="toggleStatus(habit.id)">
-      <i class="icon-ok icon-white"></i>
+    <td class="status-toggle" ng-click="toggleStatus(habit.id, $index)">
+      &nbsp;
     </td>
   </tr>
 </table>

@@ -1,7 +1,11 @@
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="/">Habitual</a>
+    <a class="brand" href="/"><img 
+        src="images/logo-transparent.png" 
+        width="48" />
+    </a>
+
     <!-- 
       Only have a single button on the right side of the navbar.
       switch on the buttonType variable. Defaults to an add button.
@@ -10,8 +14,8 @@
 
       <!-- Cancel Button -->
       <li ng-switch-when="cancel">
-        <button ng-click="loadHomeScreen()"
-          class="btn btn-small btn-inverse">
+        <button ng-click="goBack()"
+          class="btn btn-large btn-inverse">
           <i class="icon-arrow-left icon-white"></i> Back
         </button>
       </li>
@@ -19,7 +23,7 @@
       <!-- Add Button (default) -->
       <li ng-switch-default>
         <button ng-click="loadAddScreen()" 
-          class="btn btn-small btn-inverse">
+          class="btn btn-large btn-inverse">
           <i class="icon-plus icon-white"></i>
         </button>
       </li>

@@ -53,7 +53,7 @@ chainServices.service('chainService', function() {
             }
             // Should we keep going? Only go back until habit.date_started
             c = this.truncate(c.subtract('days', 1));
-            if (c <= moment(habit.date_started, 'YYYY-MM-DD')) {
+            if (c < moment(habit.date_started, 'YYYY-MM-DD')) {
                 break;
             }
         }

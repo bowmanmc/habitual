@@ -3,6 +3,8 @@
 angular.module('habitual').controller('ListCtrl',
 function ($scope, $location, habitService, chainService) {
 
+	$scope.toggledIndex = -1;
+
 	$scope.loadHabits = function() {
 		var habitList = habitService.getHabits();
 
@@ -30,13 +32,15 @@ function ($scope, $location, habitService, chainService) {
 	};
 
 	// When the status button on a particular list item is clicked
-	$scope.toggleStatus = function(habitId) {
+	$scope.toggleStatus = function(habitId, $index) {
 		var now = moment().format('YYYY-MM-DD');
 		var habit = habitService.getHabit(habitId);
 		chainService.toggle(habit, now);
 		habitService.saveHabit(habit);
 
 		this.loadHabits();
+		console.log('Toggling index ' + $index);
+		$scope.toggledIndex = $index;
 	};
 
 	// load the habits for the list

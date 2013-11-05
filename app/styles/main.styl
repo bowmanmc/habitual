@@ -1,41 +1,119 @@
 /**
  * Variable Definitions
  */
-$background_color = #dd4242
+/** Orange
+//$background_color = #FF9537
+$background_color = #FF9000
+$text_color = #FFFCF9
+$navbar_color = rgba(0, 0, 0, 0.85)
+$title_shadow = #403830
+$habit_background = rgba(128, 0, 0, 0.15)
+*/
+//$background_color = #4E94BF
+$background_color_top = #FF9502
+$background_color_bottom = #ff5a02
+$text_color = #FFFFF3
+$navbar_color = rgba(0, 0, 0, 0.85)
+$title_shadow = #191000
+$habit_background = rgba(0, 0, 0, 0.0)
+$link_on_color = #8fc800
+$link_on_color_bottom = #419e00
+$link_off_color = #BA9D55
+$cell_trans_percent = 0.0
 
 /**
  * Styles
  */
+html
+    height: 100%
+
 body 
-  background-color: $background_color
+    background: $background_color_bottom; /* Old browsers */
+    background: -moz-linear-gradient(top, $background_color_top 0%, $background_color_bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$background_color_top), color-stop(100%,$background_color_bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $background_color_top 0%,$background_color_bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $background_color_top 0%,$background_color_bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $background_color_top 0%,$background_color_bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $background_color_top 0%,$background_color_bottom 100%); /* W3C */
+    background-repeat: no-repeat
+    background-attachment: fixed
+    color: $text_color
+    height: 100%
+
+h2
+    text-shadow: 1px 1px 0 $title_shadow
 
 li
-  list-style: none
+    list-style: none
 
 .center 
-	text-align: center
+    text-align: center
 
 .content
-    margin-top: 40px
+    margin-top: 57px
 
 .details-btns
-	margin-top: 3.0em
+    margin-top: 3.0em
 
 .habit
-	background-color: rgba(255, 255, 255, 0.05)
-	border-bottom: 1px solid #aaa
+    //background-color: $habit_background
+    border-bottom: 1px solid $background_color_top
+
+.habit td
+    padding-bottom: 0.5em
+    padding-left: 10px
 
 .habits
-	width: 100%
+    width: 100%
 
 .daily-status
-	text-align: center
-	width: 20%
+    text-align: center
+    width: 20%
+
+@keyframes highlight {
+    0% {
+        background-color: rgba(255, 255, 255, 0.8)
+    }
+    100% {
+        background-color: none;
+    }
+}
+.just-toggled
+    animation: highlight 1s;
 
 .link
-    background-color: #ccc
+    //background-color: $link_off_color
+    border: 1px solid $link_off_color
     margin-right: 1px
-    padding-right: 5px;
+    padding-right: 5px
 
 .link-true
-    background-color: #0c6
+    background: $link_on_color; /* Old browsers */
+    background: -moz-linear-gradient(top, $link_on_color 0%, $link_on_color_bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$link_on_color), color-stop(100%,$link_on_color_bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $link_on_color 0%,$link_on_color_bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $link_on_color 0%,$link_on_color_bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $link_on_color 0%,$link_on_color_bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
+    border: 1px solid $link_on_color
+    box-shadow: 0 0 3px #0f0
+
+.navbar-inner
+    background-color: $navbar_color
+    background-image: none
+    background-repeat: no-repeat
+    filter: none
+
+.navbar .nav.pull-right
+    margin-right: 10px
+
+.navbar .brand
+    margin-left: -10px
+
+.status-toggle
+    background-image: url(../images/check.png)
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position:center
+    opacity: 0.23
+    width: 20%
