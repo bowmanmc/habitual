@@ -4,13 +4,13 @@ var chainServices = angular.module('habitual.services.chain', []);
 
 chainServices.service('chainService', function() {
 
-    this.MAX_LENGTH = 10;
+    this.MAX_LENGTH = 45;
 
     this.createLink = function(day) {
         var now = moment().format('YYYY-MM-DD');
         return {
             completed: false,
-            link_date: now,
+            link_date: day,
             date_created: now,
             last_updated: now
         };
@@ -28,7 +28,7 @@ chainServices.service('chainService', function() {
             link.completed = true;
         }
         var now = moment().format('YYYY-MM-DD');
-        link.link_date = now;
+        link.link_date = day;
         link.last_updated = now;
 
         habit.chain[day] = link;
@@ -57,7 +57,6 @@ chainServices.service('chainService', function() {
                 break;
             }
         }
-
         return results.reverse();
     };
 

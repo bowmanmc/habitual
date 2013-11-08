@@ -8,6 +8,26 @@
 
 <h1>{{habit.text}}</h1>
 
+<p>
+  You got started on this habit {{tracked_from}},
+  and have completed it on {{completed_links}} of the last {{total_links}} days.
+</p>
+
+<table class="habits">
+  <!-- Each Habit -->
+  <tr ng-repeat="link in chain" class="habit"
+    ng-class="{ 'just-toggled': $index == toggledIndex }"
+    ng-click="toggleLink(link.link_date, $index)">
+    <td class="habit-overview">
+      <h2>{{link.day_main}}</h2>
+      <p>{{link.day_sub}}</p>
+    </td>
+    <td class="details-completed details-completed-{{link.completed}}">
+      &nbsp;
+    </td>
+  </tr>
+</table>
+
 <!-- Habit Details end -->
     </div><!-- span -->
   </div><!-- row -->

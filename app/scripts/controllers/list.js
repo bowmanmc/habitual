@@ -38,9 +38,8 @@ function ($scope, $location, habitService, chainService) {
 		chainService.toggle(habit, now);
 		habitService.saveHabit(habit);
 
-		this.loadHabits();
-		console.log('Toggling index ' + $index);
 		$scope.toggledIndex = $index;
+		this.loadHabits();
 	};
 
 	// load the habits for the list

@@ -39,9 +39,14 @@ body
     background-attachment: fixed
     color: $text_color
     height: 100%
-
-h2
     text-shadow: 1px 1px 0 $title_shadow
+
+h1, h2, h3
+    text-shadow: 1px 1px 0 $title_shadow
+
+label
+    font-size: 120%
+
 
 li
     list-style: none
@@ -53,7 +58,20 @@ li
     margin-top: 57px
 
 .details-btns
-    margin-top: 3.0em
+    margin: 3.0em 0
+
+.details-completed
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position:center
+    opacity: 0.23
+    width: 20%
+
+.details-completed-false
+    background-image: url(../images/x.png)
+
+.details-completed-true
+    background-image: url(../images/check.png)
 
 .habit
     //background-color: $habit_background
@@ -110,6 +128,12 @@ li
 .navbar .brand
     margin-left: -10px
 
+.start
+    padding: 1.5em
+
+.start h1
+    margin: 0.75em 0
+
 .status-toggle
     background-image: url(../images/check.png)
     background-size: 100%
@@ -117,3 +141,4 @@ li
     background-position:center
     opacity: 0.23
     width: 20%
+

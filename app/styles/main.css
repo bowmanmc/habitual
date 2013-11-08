@@ -23,12 +23,16 @@ li{list-style:none}
 100%{background-color:none}
 }
 html{height:100%}
-body{background:#ff5a02;background:-moz-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ff9502),color-stop(100%,#ff5a02));background:-webkit-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-o-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-ms-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:linear-gradient(to bottom,#ff9502 0%,#ff5a02 100%);background-repeat:no-repeat;background-attachment:fixed;color:#fffff3;height:100%}
-h2{text-shadow:1px 1px 0 #191000}
+body{background:#ff5a02;background:-moz-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ff9502),color-stop(100%,#ff5a02));background:-webkit-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-o-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:-ms-linear-gradient(top,#ff9502 0%,#ff5a02 100%);background:linear-gradient(to bottom,#ff9502 0%,#ff5a02 100%);background-repeat:no-repeat;background-attachment:fixed;color:#fffff3;height:100%;text-shadow:1px 1px 0 #191000}
+h1,h2,h3{text-shadow:1px 1px 0 #191000}
+label{font-size:120%}
 li{list-style:none}
 .center{text-align:center}
 .content{margin-top:57px}
-.details-btns{margin-top:3em}
+.details-btns{margin:3em 0}
+.details-completed{background-size:100%;background-repeat:no-repeat;background-position:center;opacity:.23;width:20%}
+.details-completed-false{background-image:url("../images/x.png")}
+.details-completed-true{background-image:url("../images/check.png")}
 .habit{border-bottom:1px solid #ff9502}
 .habit td{padding-bottom:.5em;padding-left:10px}
 .habits{width:100%}
@@ -39,6 +43,8 @@ li{list-style:none}
 .navbar-inner{background-color:rgba(0,0,0,0.85);background-image:none;background-repeat:no-repeat;filter:none}
 .navbar .nav.pull-right{margin-right:10px}
 .navbar .brand{margin-left:-10px}
+.start{padding:1.5em}
+.start h1{margin:.75em 0}
 .status-toggle{background-image:url("../images/check.png");background-size:100%;background-repeat:no-repeat;background-position:center;opacity:.23;width:20%}
 @-moz-keyframes highlight{0%{background-color:rgba(255,255,255,0.8)}
 100%{background-color:none}
