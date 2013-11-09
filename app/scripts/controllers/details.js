@@ -40,6 +40,10 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 		$location.path('/habit/reset/' + habitId);
 	};
 
+    $scope.goBack = function() {
+        $location.path('/');
+    };
+
     // initialize the scope on page load.
     $scope.initializeScope();
 });

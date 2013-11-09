@@ -7,8 +7,4 @@ function ($scope, $location, $window) {
 		$location.path('/add');
 	};
 
-	$scope.goBack = function() {
-        $window.history.back();
-	};
-
 });

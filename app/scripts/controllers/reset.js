@@ -16,12 +16,11 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 
     $scope.resetHabit = function(habitId) {
         habitService.resetHabit(habitId);
-        //$location.path('/habit/' + habitId);
-        $location.path('/');
+        $location.path('/habit/' + habitId);
     };
 
-    $scope.cancel = function(habitId) {
-        $location.path('/habit/' + habitId);
+    $scope.goBack = function() {
+        $location.path('/habit/' + $routeParams.habitId);
     };
 
     $scope.initializeScope();

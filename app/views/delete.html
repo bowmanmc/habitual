@@ -6,7 +6,13 @@
     <div class="span12">
 <!-- Habit Details start -->
 
-<h1>{{habit.text}}</h1>
+<h1>Delete: {{habit.text}}</h1>
+<p>
+  You've been tracking this habit for {{stats.total_links}} days, 
+  are you sure you want to delete it?
+</p>
+
+<hr />
 
 <!-- Habit Details end -->
     </div><!-- span -->
@@ -15,14 +21,14 @@
   <div class="row-fluid details-btns">
     <div class="span12">
         <button type="button" class="btn btn-default btn-lg pull-left"
-          ng-click="cancel({{habit.id}})">
+          ng-click="goBack()">
           <i class="icon-arrow-left"></i>
-          Cancel
+          No, Cancel
         </button>
         <button type="button" class="btn btn-default btn-lg pull-right"
           ng-click="deleteHabit({{habit.id}})">
           <i class="icon-remove"></i>
-          Delete
+          Yes, Delete It!
         </button>
     </div>
   </div>
