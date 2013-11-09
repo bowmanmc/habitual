@@ -6,7 +6,17 @@
     <div class="span12">
 <!-- Habit Details start -->
 
-<h1>{{habit.text}}</h1>
+<h1>Reset: {{habit.text}}</h1>
+<p>
+  You've been tracking this habit for {{stats.total_links}} days, 
+  are you sure you want to reset it? 
+
+  Doing so will 
+  <strong class="underline">erase all</strong> of your 
+  progress!
+</p>
+
+<hr />
 
 <!-- Habit Details end -->
     </div><!-- span -->
@@ -17,12 +27,12 @@
         <button type="button" class="btn btn-default btn-lg pull-left"
           ng-click="cancel({{habit.id}})">
           <i class="icon-arrow-left"></i>
-          Cancel
+          No, Cancel
         </button>
         <button type="button" class="btn btn-default btn-lg pull-right"
           ng-click="resetHabit({{habit.id}})">
           <i class="icon-time"></i>
-          Reset
+          Yes, Reset It!
         </button>
     </div>
   </div>

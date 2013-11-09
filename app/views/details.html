@@ -10,7 +10,7 @@
 
 <p>
   You got started on this habit {{tracked_from}},
-  and have completed it on {{completed_links}} of the last {{total_links}} days.
+  and have completed it on {{stats.completed_links}} of the last {{stats.total_links}} days.
 </p>
 
 <table class="habits">
@@ -20,7 +20,13 @@
     ng-click="toggleLink(link.link_date, $index)">
     <td class="habit-overview">
       <h2>{{link.day_main}}</h2>
-      <p>{{link.day_sub}}</p>
+      <p>
+        {{link.day_sub}} 
+        <span ng-switch="link.completed">
+          <span ng-switch-when="true"> - done.</span>
+          <span ng-switch-default> - skipped.</span>
+        </span>
+      </p>
     </td>
     <td class="details-completed details-completed-{{link.completed}}">
       &nbsp;

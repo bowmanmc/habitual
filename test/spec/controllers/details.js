@@ -31,8 +31,8 @@ describe('Controller: HabitDetailsCtrl', function () {
 
     it('Should have totals equal to zero', function() {
         expect(scope.habit).toBeDefined();
-        expect(scope.completed_links).toBe(0);
-        expect(scope.total_links).toBe(1); // one for today
+        expect(scope.stats.completed_links).toBe(0);
+        expect(scope.stats.total_links).toBe(1); // one for today
     });
 
     

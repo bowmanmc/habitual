@@ -5,9 +5,10 @@ var chainServices = angular.module('habitual.services.chain', []);
 chainServices.service('chainService', function() {
 
     this.MAX_LENGTH = 45;
+    var DAY_FORMAT = 'YYYY-MM-DD';
 
     this.createLink = function(day) {
-        var now = moment().format('YYYY-MM-DD');
+        var now = moment().format(DAY_FORMAT);
         return {
             completed: false,
             link_date: day,
@@ -27,11 +28,28 @@ chainServices.service('chainService', function() {
         else {
             link.completed = true;
         }
-        var now = moment().format('YYYY-MM-DD');
+        var now = moment().format(DAY_FORMAT);
         link.link_date = day;
         link.last_updated = now;
 
         habit.chain[day] = link;
+    };
+
+    this.getChainStats = function(chain) {
+        var stats = {};
+        stats.total_links = 0;
+        stats.completed_links = 0;
+        var len = chain.length;
+        var i, link, m;
+        for (i = 0; i < len; i++) {
+            link = chain[i];
+            if (link.completed) {
+                stats.completed_links += 1;
+            }
+            stats.total_links += 1;
+        }
+
+        return stats;
     };
 
     this.getFilledOutChain = function(habit) {
@@ -41,19 +59,23 @@ chainServices.service('chainService', function() {
         var results = [];
 
         var c = moment();
-        var day, link;
+        var day, link, m;
         for (var i = 0; i < this.MAX_LENGTH; i++) {
-            day = c.format('YYYY-MM-DD');
+            day = c.format(DAY_FORMAT);
             link = habit.chain[day];
-            if (typeof link !== 'undefined') {
-                results.push(link);
+            if (typeof link === 'undefined') {
+                link = this.createLink(day);
             }
-            else {
-                results.push(this.createLink(day));
-            }
+
+            m = moment(link.link_date, 'YYYY-MM-DD');
+            link.day_main = m.format('dddd');
+            link.day_sub = m.format('MMMM Do');
+
+            results.push(link);
+
             // Should we keep going? Only go back until habit.date_started
             c = this.truncate(c.subtract('days', 1));
-            if (c < moment(habit.date_started, 'YYYY-MM-DD')) {
+            if (c < moment(habit.date_started, DAY_FORMAT)) {
                 break;
             }
         }
@@ -61,6 +83,6 @@ chainServices.service('chainService', function() {
     };
 
     this.truncate = function(m) {
-        return moment(m.format('YYYY-MM-DD'), 'YYYY-MM-DD');
+        return moment(m.format(DAY_FORMAT), DAY_FORMAT);
     };
 });

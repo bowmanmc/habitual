@@ -12,26 +12,10 @@ function ($scope, $location, $routeParams, habitService, chainService) {
         // Loop through and get the total_links, completed_links, and format each
         // link in the chain for viewing
         $scope.chain = chainService.getFilledOutChain($scope.habit).reverse();
-        var tot = 0;
-        var com = 0;
-        var len = $scope.chain.length;
-        var i, link, m;
-        for (i = 0; i < len; i++) {
-            link = $scope.chain[i];
-            if (link.completed) {
-                com += 1;
-            }
-            tot += 1;
+        $scope.stats = chainService.getChainStats($scope.chain);
 
-            m = moment(link.link_date, 'YYYY-MM-DD');
-            link.day_main = m.format('dddd');
-            link.day_sub = m.format('MMMM Do');
-        }
-
-        $scope.total_links = tot;
-        $scope.completed_links = com;
-        if (com == tot) {
-            $scope.completed_links = 'each';
+        if ($scope.stats.completed_links == $scope.stats.total_links) {
+            $scope.stats.completed_links = 'each';
         }
 
         $scope.tracked_from = moment($scope.habit.date_started, 'YYYY-MM-DD').fromNow();
