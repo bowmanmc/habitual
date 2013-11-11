@@ -102,7 +102,10 @@ li
     }
 }
 .just-toggled
-    animation: highlight 1s;
+    animation: highlight 1s linear
+    -webkit-animation: highlight 1s linear
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 
 .link
     //background-color: $link_off_color

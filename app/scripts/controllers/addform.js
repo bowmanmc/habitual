@@ -9,4 +9,8 @@ function ($scope, $location, habitService) {
 		habitService.createNewHabit($scope.form_habit);
 		$location.path('/');
 	};
+
+	$scope.goBack = function() {
+        $location.path('/');
+    };
 });
