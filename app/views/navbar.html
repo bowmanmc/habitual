@@ -1,0 +1,44 @@
+
+<div class="navigation navbar-fixed-top">
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+      s
+    </div>
+
+    <div class="span4 center">
+      <a class="brand" href="/">
+       <img src="images/logo.svg" width="29" />
+      </a>
+    </div>
+
+    <div class="span4">
+      <!-- 
+        Only have a single button on the right side of the navbar.
+        switch on the buttonType variable. Defaults to an add button.
+      -->
+      <ul ng-switch="buttonType" class="nav pull-right">
+
+        <!-- Cancel Button -->
+        <li ng-switch-when="cancel">
+          <button ng-click="goBack()"
+            class="btn btn-default btn-inverse">
+            <i class="icon-arrow-left icon-white"></i> Back
+          </button>
+        </li>
+
+        <!-- Add Button (default) -->
+        <li ng-switch-default>
+          <button ng-click="loadAddScreen()" 
+            class="btn btn-default btn-inverse">
+            <i class="icon-plus icon-white"></i>
+          </button>
+        </li>
+      </ul><!-- nav/ng-switch -->
+    </div>
+  </div><!-- row -->
+</div><!-- container -->
+
+</div>
+

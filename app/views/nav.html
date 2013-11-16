@@ -1,9 +1,10 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
+
     <a class="brand" href="/"><img 
-        src="images/logo-transparent.png" 
-        width="48" />
+        src="images/logo.svg" 
+        width="29" />
     </a>
 
     <!-- 
@@ -15,7 +16,7 @@
       <!-- Cancel Button -->
       <li ng-switch-when="cancel">
         <button ng-click="goBack()"
-          class="btn btn-large btn-inverse">
+          class="btn btn-default btn-inverse">
           <i class="icon-arrow-left icon-white"></i> Back
         </button>
       </li>
@@ -23,7 +24,7 @@
       <!-- Add Button (default) -->
       <li ng-switch-default>
         <button ng-click="loadAddScreen()" 
-          class="btn btn-large btn-inverse">
+          class="btn btn-default btn-inverse">
           <i class="icon-plus icon-white"></i>
         </button>
       </li>
