@@ -13,14 +13,15 @@ li{list-style:none}
 .habit{border-bottom:1px solid #ff9502}
 .habit td{padding-bottom:.5em;padding-left:10px}
 .habits{width:100%}
+.hidden{visibility:hidden}
 .daily-status{text-align:center;width:20%}
 .just-toggled{animation:highlight 1s linear;-webkit-animation:highlight 1s linear;-webkit-animation-iteration-count:1;-webkit-animation-fill-mode:forwards}
 .link{border:1px solid #ba9d55;margin-right:1px;padding-right:5px}
 .link-true{background:#8fc800;background:-moz-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#8fc800),color-stop(100%,#419e00));background:-webkit-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-o-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-ms-linear-gradient(top,#8fc800 0%,#419e00 100%);background:linear-gradient(to bottom,#8fc800 0%,#419e00 100%);border:1px solid #8fc800}
-.navbar-inner{background-color:rgba(0,0,0,0.85);background-image:none;background-repeat:no-repeat;filter:none}
+.navbar-inner{background-color:rgba(255,149,2,0.95);background-image:none;background-repeat:no-repeat;border-bottom:1px solid #ff9502;filter:none}
 .navbar .nav.pull-right{margin-right:10px}
 .navbar .brand{margin-left:-10px}
-.navigation{background-color:rgba(0,0,0,0.85);border-bottom:1px solid #444}
+.pointer{cursor:pointer}
 .start{padding:1.5em}
 .start h1{margin:.75em 0}
 .status-toggle{background-image:url("../images/check.png");background-size:100%;background-repeat:no-repeat;background-position:center;opacity:.23;width:20%}

@@ -2,33 +2,38 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
 
-    <a class="brand" href="/"><img 
-        src="images/logo.svg" 
-        width="29" />
-    </a>
+    <div class="brand" ng-switch="buttonType">
 
-    <!-- 
-      Only have a single button on the right side of the navbar.
-      switch on the buttonType variable. Defaults to an add button.
-    -->
-    <ul ng-switch="buttonType" class="nav pull-right">
+      <!-- list - Back to Details -->
+      <div ng-switch-when="list">
+        <a href="#/">
+          <img src="images/back.png" /><img 
+            src="images/logo-nav.png" />
+        </a>
+      </div><!-- list -->
 
-      <!-- Cancel Button -->
-      <li ng-switch-when="cancel">
-        <button ng-click="goBack()"
-          class="btn btn-default btn-inverse">
-          <i class="icon-arrow-left icon-white"></i> Back
-        </button>
+      <div ng-switch-when="details">
+        <a ng-click="goBack()" class="pointer">
+          <img src="images/back.png" /><img 
+            src="images/details.png" />
+        </a>
+      </div>
+
+      <!-- Default - Habitual Icon -->
+      <div ng-switch-default>
+        <a href="#/">
+          <img src="images/logo-nav.png" />
+        </a>
+      </div><!-- Default - Icon to home -->
+    </div> <!-- ng-switch buttonType -->
+
+    <ul class="nav pull-right">
+      <li>
+        <a ng-click="loadAddScreen()" class="pointer">
+          <img src="images/add-icon.png" />
+        </a>
       </li>
+    </ul><!-- nav -->
 
-      <!-- Add Button (default) -->
-      <li ng-switch-default>
-        <button ng-click="loadAddScreen()" 
-          class="btn btn-default btn-inverse">
-          <i class="icon-plus icon-white"></i>
-        </button>
-      </li>
-
-    </ul><!-- nav/ng-switch -->
   </div><!-- navbar-inner -->
 </div><!-- navbar -->

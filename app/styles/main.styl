@@ -1,19 +1,12 @@
 /**
  * Variable Definitions
  */
-/** Orange
-//$background_color = #FF9537
-$background_color = #FF9000
-$text_color = #FFFCF9
-$navbar_color = rgba(0, 0, 0, 0.85)
-$title_shadow = #403830
-$habit_background = rgba(128, 0, 0, 0.15)
-*/
 //$background_color = #4E94BF
 $background_color_top = #FF9502
 $background_color_bottom = #ff5a02
+$icon_color = #bf4402
 $text_color = #FFFFF3
-$navbar_color = rgba(0, 0, 0, 0.85)
+$navbar_color = rgba(255, 149, 2, 0.95)
 $title_shadow = #191000
 $habit_background = rgba(0, 0, 0, 0.0)
 $link_on_color = #8fc800
@@ -89,6 +82,9 @@ li
 .habits
     width: 100%
 
+.hidden
+    visibility: hidden
+
 .daily-status
     text-align: center
     width: 20%
@@ -127,6 +123,7 @@ li
     background-color: $navbar_color
     background-image: none
     background-repeat: no-repeat
+    border-bottom: 1px solid $background_color_top
     filter: none
 
 .navbar .nav.pull-right
@@ -135,9 +132,8 @@ li
 .navbar .brand
     margin-left: -10px
 
-.navigation
-    background-color: $navbar_color
-    border-bottom: 1px solid #444
+.pointer
+    cursor: pointer
 
 .start
     padding: 1.5em
