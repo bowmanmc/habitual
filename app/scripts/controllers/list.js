@@ -14,15 +14,23 @@ function ($scope, $location, habitService, chainService) {
 	        $location.path('/start');
 		}
 
+		var today = moment().format('YYYY-MM-DD');
+
 		// Else, fill out the chains
 		$scope.habits = [];
 		var len = habitList.length;
 		var habit, chain, i;
 		for (i = 0; i < len; i++) {
 			habit = habitList[i];
+			habit.completed_today = false;
+			if (typeof habit.chain[today] !== 'undefined' && 
+				habit.chain[today].completed === true) {
+				habit.completed_today = true;
+			}
 			chain = chainService.getFilledOutChain(habit);
 			habit.chain = chain;
 			$scope.habits.push(habit);
+			
 		}
 	};
 

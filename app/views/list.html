@@ -1,8 +1,61 @@
 
 <hbt-navbar></hbt-navbar>
 
+<!-- 
+<div class="habits">
+  <div ng-repeat="habit in habits" class="habit"
+       ng-class="{ 'just-toggled': $index == toggledIndex}">
+
+    <div class="row-fluid">
+
+      <div class="span3">
+        <img src="images/status-toggle.png" 
+          class="toggle-btn"
+          height="256"
+          ng-click="toggleStatus(habit.id, $index)" />
+      </div>
+
+      <div class="span9">
+        <h2>{{habit.text}}</h2>
+        <div class="chain">
+          <span ng-repeat="link in habit.chain" id="link_{{link.link_date}}"
+            class="link link-{{link.completed}}"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> -->
+
+<div class="content">
+
+  <div ng-repeat="habit in habits">
+  
+    <table class="habit">
+      <tr>
+        <td class="habit-toggle-ctr" ng-click="toggleStatus(habit.id, $index)">
+          <div class="habit-toggle" 
+            ng-class="{ 'habit-toggle-on': habit.completed_today }">
+              &nbsp;
+          </div>
+        </td>
+        <td class="habit-overview" valign="top" ng-click="loadDetails(habit.id)">
+          <h2>{{habit.text}}</h2>
+          <div class="chain">
+            <span ng-repeat="link in habit.chain"
+              ><br ng-if="$index % 14 == 0 && $index > 0" 
+              /><span class="link link-{{link.completed}}"
+              >&nbsp;</span></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- 
 <table class="habits content">
-  <!-- Each Habit -->
   <tr ng-repeat="habit in habits" class="habit"
     ng-class="{ 'just-toggled': $index == toggledIndex }">
     <td class="habit-overview" ng-click="loadDetails(habit.id)">
@@ -17,3 +70,4 @@
     </td>
   </tr>
 </table>
+-->
