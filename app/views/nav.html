@@ -4,15 +4,16 @@
 
     <div class="brand" ng-switch="buttonType">
 
-      <!-- list - Back to Details -->
-      <div ng-switch-when="list">
-        <a href="#/">
+      <!-- list - Back to List -->
+      <div class="nav-loc" ng-switch-when="list">
+        <a href="/">
           <img src="images/back.png" /><img 
             src="images/logo-nav.png" />
         </a>
       </div><!-- list -->
 
-      <div ng-switch-when="details">
+      <!-- details - Back to Details -->
+      <div class="nav-loc" ng-switch-when="details">
         <a ng-click="goBack()" class="pointer">
           <img src="images/back.png" /><img 
             src="images/details.png" />
@@ -20,9 +21,10 @@
       </div>
 
       <!-- Default - Habitual Icon -->
-      <div ng-switch-default>
-        <a href="#/">
-          <img src="images/logo-nav.png" />
+      <div class="nav-loc" ng-switch-default>
+        <a href="/">
+          <img 
+          src="images/logo-nav.png" />
         </a>
       </div><!-- Default - Icon to home -->
     </div> <!-- ng-switch buttonType -->

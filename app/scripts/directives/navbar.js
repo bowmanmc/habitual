@@ -1,6 +1,6 @@
 'use strict';
 
-var navbarModule = angular.module('habitual.directives.navbar', []);
+var navbarModule = angular.module('habitual.directives.navbar', ['ngAnimate']);
 
 navbarModule.directive('hbtNavbar', function() {
     return {

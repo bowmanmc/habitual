@@ -5,6 +5,7 @@ var app = angular.module('habitual', [
     'habitual.services.chain',
     'habitual.services.habit',
     'LocalStorageModule',
+    'ngAnimate',
     'ngRoute',
     'ngTouch'
 ]);

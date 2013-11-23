@@ -155,6 +155,16 @@ div, img, span, td, tr {
     background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
     border: 1px solid $link_on_color
 
+@keyframes nav_fade
+    0% { opacity:0; }
+    100% { opacity:1; }
+
+.nav-loc.ng-enter
+    animation: nav_fade 350ms linear
+    -webkit-animation: nav_fade 350ms linear
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+
 .navbar-inner
     background-color: $navbar_color
     background-image: none
