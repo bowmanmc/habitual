@@ -4,7 +4,7 @@ var chainServices = angular.module('habitual.services.chain', []);
 
 chainServices.service('chainService', function() {
 
-    this.MAX_LENGTH = 45;
+    this.MAX_LENGTH = 42;
     var DAY_FORMAT = 'YYYY-MM-DD';
 
     this.createLink = function(day) {

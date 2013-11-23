@@ -1,7 +1,7 @@
 
 <hbt-navbar button-type='list'></hbt-navbar>
 
-<div class="container-fluid content">
+<div class="container-fluid details">
   <div class="row-fluid">
     <div class="span12">
 <!-- Habit Details start -->
@@ -15,7 +15,7 @@
 
 <table class="habits">
   <!-- Each Habit -->
-  <tr ng-repeat="link in chain" class="habit"
+  <tr ng-repeat="link in chain" class=""
     ng-class="{ 'just-toggled': $index == toggledIndex }"
     ng-click="toggleLink(link.link_date, $index)">
     <td class="habit-overview">

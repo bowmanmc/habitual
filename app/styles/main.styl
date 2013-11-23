@@ -8,7 +8,7 @@ $icon_color = #bf4402
 $text_color = #FFFFF3
 $navbar_color = rgba(255, 149, 2, 0.95)
 $title_shadow = #191000
-$habit_background = rgba(0, 0, 0, 0.0)
+$habit_background = #f0ecea
 $link_on_color = #8fc800
 $link_on_color_bottom = #419e00
 $link_off_color = #BA9D55
@@ -68,6 +68,12 @@ div, img, span, td, tr {
     text-align: center
     width: 20%
 
+.details
+    background: $habit_background
+    color: #333
+    padding-top: $nav_height
+    text-shadow: 1px 1px 0 #fff
+
 .details-btns
     margin: 3.0em 0
 
@@ -85,13 +91,13 @@ div, img, span, td, tr {
     background-image: url(../images/check.png)
 
 .habit
-    background: #f0ecea
+    background: $habit_background
     border: 1px solid #fff
     box-shadow: 0 0 7px $background_color_top
     color: #333
     margin: 0.75em auto
     text-shadow: none
-    width: 90%
+    width: 95%
 
 .habit-overview
     width: 80%

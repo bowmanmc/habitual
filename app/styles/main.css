@@ -8,11 +8,12 @@ div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .chain{width:100%}
 .content{margin-top:57px}
 .daily-status{text-align:center;width:20%}
+.details{background:#f0ecea;color:#333;padding-top:57px;text-shadow:1px 1px 0 #fff}
 .details-btns{margin:3em 0}
 .details-completed{background-size:100%;background-repeat:no-repeat;background-position:center;opacity:.23;width:20%}
 .details-completed-false{background-image:url("../images/x.png")}
 .details-completed-true{background-image:url("../images/check.png")}
-.habit{background:#f0ecea;border:1px solid #fff;box-shadow:0 0 7px #ff9502;color:#333;margin:.75em auto;text-shadow:none;width:90%}
+.habit{background:#f0ecea;border:1px solid #fff;box-shadow:0 0 7px #ff9502;color:#333;margin:.75em auto;text-shadow:none;width:95%}
 .habit-overview{width:80%}
 .habit-toggle{background-image:url("../images/status-toggle.png");background-repeat:no-repeat;background-position:center;background-size:100%;margin:auto;width:64px;height:64px}
 .habit-toggle-on{background-image:url("../images/status-toggle-on.png")}
