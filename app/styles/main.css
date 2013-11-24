@@ -27,7 +27,9 @@ div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .navbar-inner{background-color:rgba(255,149,2,0.95);background-image:none;background-repeat:no-repeat;border-bottom:1px solid #ff9502;filter:none}
 .navbar .nav.pull-right{margin-right:10px}
 .navbar .brand{margin-left:-10px}
+.navigation{background-color:rgba(255,149,2,0.95);background-image:none;background-repeat:no-repeat;border-bottom:1px solid #ff9502;box-shadow:0 -1px 7px #000;filter:none;padding:5px 0}
 .pointer{cursor:pointer}
+.right{text-align:right}
 .start{padding:1.5em}
 .start h1{margin:.75em 0}
 .toggle-btn{margin:2em .5em 2em 0}
