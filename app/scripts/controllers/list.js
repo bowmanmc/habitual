@@ -55,6 +55,14 @@ function ($scope, $location, habitService, chainService) {
 		habit.chain = chain;
 	};
 
+	$scope.initDate = function() {
+		var now = moment();
+		$scope.month = now.format('MMM');
+		$scope.day_name = now.format('dddd');
+		$scope.day_number = now.format('DD');
+		$scope.day = now.format('dddd, MMMM Do YYYY');
+	};
+
 	// When a particular list item is clicked
 	$scope.loadDetails = function(habitId) {
 		$location.path('/habit/' + habitId);
@@ -73,4 +81,5 @@ function ($scope, $location, habitService, chainService) {
 
 	// load the habits for the list
 	$scope.loadHabits();
+	$scope.initDate();
 });

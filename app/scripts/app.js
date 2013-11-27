@@ -19,6 +19,10 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/add.html',
         controller: 'AddFormCtrl'
     })
+    .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+    })
     .when('/start', {
         templateUrl: 'views/start.html',
         controller: 'NavCtrl'
