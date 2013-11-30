@@ -1,0 +1,39 @@
+
+<hbt-navbar></hbt-navbar>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 center">
+        <div class="day">{{day}}</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+
+  <!-- Column -->
+  <div ng-repeat="column in columns" class="span6">
+    <div ng-repeat="habit in column" 
+         class="card"
+         ng-class="{'just-toggled': ($index == toggledIndex && $parent.$index == toggledColumn)}">
+
+      <div class="card-toggle habit-toggle" 
+        ng-click="toggleStatus(habit.id, $parent.$index, $index)"
+        ng-class="{ 'habit-toggle-on': habit.completed_today }">
+        &nbsp;
+      </div>
+      <div class="card-chain">
+        <span ng-repeat="link in habit.chain"
+          ><span class="card-link card-link-{{link.completed}}"
+          ></span></span>
+      </div>
+      <div class="card-title" ng-click="loadDetails(habit.id)">
+        {{habit.text}}
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>

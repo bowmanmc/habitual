@@ -12,7 +12,7 @@ var app = angular.module('habitual', [
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'views/list.html',
+        templateUrl: 'views/card.html',
         controller: 'ListCtrl'
     })
     .when('/add', {

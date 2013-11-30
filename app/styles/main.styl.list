@@ -6,13 +6,13 @@ $background_color_top = #FF9502
 $background_color_bottom = #ff5a02
 $icon_color = #bf4402
 $text_color = #212526
-$navbar_color = rgba(33, 37, 38, 0.97)
+$navbar_color = rgba(33, 37, 38, 0.95)
 $title_shadow = #fff
 $habit_background = #e8e0dc
 $link_on_color = #8fc800
 $link_on_color_bottom = #419e00
 //$link_off_color = #BA9D55
-$link_off_color = #bbb
+$link_off_color = #999
 $cell_trans_percent = 0.0
 $nav_height = 57px
 
@@ -46,46 +46,6 @@ li
 div, img, span, td, tr {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
-.card
-    border: 1px solid #f3f6f9
-    border-radius: 0.35em
-    box-shadow: 0 0 3px #444
-    margin: 1em 0
-    padding: 0.25em
-    background: rgba(166, 186, 191, 0.25)
-
-.card-chain
-	border-bottom: 1px solid #999
-	padding: 5px 0
-	word-wrap: break-word
-	text-align: center
-
-.card-link
-    background-color: $link_off_color
-    //border: 1px solid $link_off_color
-    margin-right: 1px
-    padding-right: 2px
-
-.card-link-true
-    background: $link_on_color; /* Old browsers */
-    background: -moz-linear-gradient(top, $link_on_color 0%, $link_on_color_bottom 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$link_on_color), color-stop(100%,$link_on_color_bottom)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, $link_on_color 0%,$link_on_color_bottom 100%); /* Chrome10+,Safari5.1+ */
-    background: -ms-linear-gradient(top, $link_on_color 0%,$link_on_color_bottom 100%); /* IE10+ */
-    background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
-
-.card-title {
-	border-top: 1px solid #fff;
-    font-weight: bold;
-    padding-top: 5px;
-    text-align: center;
-    text-shadow: 1px 1px 0 #fff;
-	width: 100%;
-}
-
-.card-toggle
-	margin: 0 auto
 
 .center 
     text-align: center
@@ -185,11 +145,11 @@ div, img, span, td, tr {
         background-color: none;
     }
 }
-// .just-toggled
-//    animation: highlight 1s linear
-//    -webkit-animation: highlight 1s linear
-//    -webkit-animation-iteration-count: 1;
-//    -webkit-animation-fill-mode: forwards;
+.just-toggled
+    animation: highlight 1s linear
+    -webkit-animation: highlight 1s linear
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 
 .link
     //background-color: $link_off_color

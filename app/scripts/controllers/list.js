@@ -4,6 +4,7 @@ angular.module('habitual').controller('ListCtrl',
 function ($scope, $location, habitService, chainService) {
 
 	$scope.toggledIndex = -1;
+	$scope.toggledColumn = -1;
 
 	$scope.loadHabits = function() {
 		var habitList = habitService.getHabits();
@@ -14,32 +15,17 @@ function ($scope, $location, habitService, chainService) {
 	        $location.path('/start');
 		}
 
-		
-
 		// Else, fill out the chains
-		$scope.habits = [];
+		var habits = [];
 		var len = habitList.length;
 		var habit, i;
-		var wayback = moment().subtract('days', 50).format('YYYY-MM-DD');
 		for (i = 0; i < len; i++) {
 			habit = habitList[i];
 			$scope.fillOutHabit(habit);
-			$scope.habits.push(habit);
+			habits.push(habit);
 		}
-	};
 
-	$scope.loadHabit = function(habitId) {
-		var habit = habitService.getHabit(habitId);
-		$scope.fillOutHabit(habit);
-
-		var len = $scope.habits.length;
-		var h, i;
-		for (i = 0; i < len; i++) {
-			h = $scope.habits[i];
-			if (h.id == habit.id) {
-				$scope.habits[i] = habit;
-			}
-		}
+		return habits;
 	};
 
 	$scope.fillOutHabit = function(habit) {
@@ -49,7 +35,8 @@ function ($scope, $location, habitService, chainService) {
 			habit.chain[today].completed === true) {
 			habit.completed_today = true;
 		}
-		//habit.date_started = wayback;
+		var wayback = moment().subtract(100, 'days');
+		habit.date_started = wayback;
 		var chain = chainService.getFilledOutChain(habit);
 		chain.reverse();
 		habit.chain = chain;
@@ -63,23 +50,43 @@ function ($scope, $location, habitService, chainService) {
 		$scope.day = now.format('dddd, MMMM Do YYYY');
 	};
 
+	$scope.prepareColumns = function(habits) {
+		$scope.columns = [[], []];
+
+		var i, h;
+		var colId = 0;
+		var len = habits.length;
+		for (i = 0; i < len; i++) {
+			h = habits[i];
+			$scope.columns[colId].push(h);
+			colId++;
+			if (colId >= $scope.columns.length) {
+				colId = 0;
+			}
+		}
+	};
+
 	// When a particular list item is clicked
 	$scope.loadDetails = function(habitId) {
 		$location.path('/habit/' + habitId);
 	};
 
 	// When the status button on a particular list item is clicked
-	$scope.toggleStatus = function(habitId, $index) {
+	$scope.toggleStatus = function(habitId, column, index) {
 		var now = moment().format('YYYY-MM-DD');
 		var habit = habitService.getHabit(habitId);
 		chainService.toggle(habit, now);
 		habitService.saveHabit(habit);
+		console.log('Toggling index: ' + column+ '.' + index);
 
-		$scope.toggledIndex = $index;
-		this.loadHabit(habitId);
+		$scope.toggledColumn = column;
+		$scope.toggledIndex = index;
+
+		$scope.fillOutHabit(habit);
+		$scope.columns[column][index] = habit;
 	};
 
 	// load the habits for the list
-	$scope.loadHabits();
+	$scope.prepareColumns($scope.loadHabits());
 	$scope.initDate();
 });
