@@ -69,7 +69,8 @@ chainServices.service('chainService', function() {
 
             m = moment(link.link_date, 'YYYY-MM-DD');
             link.day_main = m.format('dddd');
-            link.day_sub = m.format('MMMM Do');
+            link.day_month = m.format('MMM');
+            link.day_num = m.format('D');
 
             results.push(link);
 

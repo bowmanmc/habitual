@@ -5,9 +5,12 @@
 $background_color_top = #FF9502
 $background_color_bottom = #ff5a02
 $icon_color = #bf4402
-$text_color = #212526
-$navbar_color = rgba(33, 37, 38, 0.97)
-$title_shadow = #fff
+//$text_color = #212526
+$text_color = #f3f3f3
+//$navbar_color = rgba(33, 37, 38, 0.97)
+//$navbar_color = rgba(38, 27, 73, 0.97)
+$navbar_color = rgba(16, 12, 0, 0.90)
+$title_shadow = #000
 $habit_background = #e8e0dc
 $link_on_color = #8fc800
 $link_on_color_bottom = #419e00
@@ -23,10 +26,17 @@ html, body
     height: 100%
 
 body
-    background: $habit_background
+    //background: $habit_background
+    background-image: url('../images/night-lights-2048x2048.jpg')
+    //background-image: url('../images/red-leaves-2048.jpg')
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-size: cover !important
+    -webkit-background-size: cover !important
     color: $text_color
 
 h1, h2, h3
+    color: #fff
     text-shadow: 1px 1px 0 $title_shadow
 
 hr
@@ -48,15 +58,15 @@ div, img, span, td, tr {
 }
 
 .card
-    border: 1px solid #f3f6f9
+    //border: 1px solid #f3f6f9
     border-radius: 0.35em
-    box-shadow: 0 0 3px #444
+    //box-shadow: 0 0 3px #444
     margin: 1em 0
     padding: 0.25em
-    background: rgba(166, 186, 191, 0.25)
+    background: rgba(166, 186, 191, 0.15)
 
 .card-chain
-	border-bottom: 1px solid #999
+	border-bottom: 1px solid #333
 	padding: 5px 0
 	word-wrap: break-word
 	text-align: center
@@ -76,11 +86,12 @@ div, img, span, td, tr {
     background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
 
 .card-title {
-	border-top: 1px solid #fff;
-    font-weight: bold;
+	border-top: 1px solid #999;
+    color: #eee;
+    //font-weight: bold;
     padding-top: 5px;
     text-align: center;
-    text-shadow: 1px 1px 0 #fff;
+    text-shadow: 1px 1px 0 #000;
 	width: 100%;
 }
 
@@ -102,40 +113,61 @@ div, img, span, td, tr {
     width: 20%
 
 .day
-    background: rgba(166, 186, 191, 0.25)
-    border: 1px solid #f3f6f9
+    background: rgba(166, 186, 191, 0.15)
+    //border: 1px solid #f3f6f9
+    border: none
     border-top: none
     border-radius: 0.35em
     border-top-left-radius: 0
     border-top-right-radius: 0
-    box-shadow: 0 0 3px #444
-    font-weight: bold
+    //box-shadow: 0 0 3px #444
+    color: #eee
+    //font-weight: bold
     font-size: 1.10em
+    //letter-spacing: 0.075em
     padding: $nav_height 0.05em 0.5em 0.05em
-    text-shadow: 1px 1px 0 #fff
+    text-shadow: 1px 1px 0 #000
 
 .details
-    background: $habit_background
-    color: #333
-    height: 100%
-    padding-top: $nav_height
-    text-shadow: 1px 1px 0 #fff
+    //background: $habit_background
+    color: #ddd
+    padding: $nav_height 0
+    text-shadow: 1px 1px 0 #000
 
 .details-btns
     margin: 3.0em 0
 
-.details-completed
-    background-size: 100%
-    background-repeat: no-repeat
-    background-position:center
-    opacity: 0.23
-    width: 20%
+.details-cal
+    border-radius: 0.35em
+    padding: 0.5em 0.25em 0 0.5em
+    text-align: center
 
-.details-completed-false
-    background-image: url(../images/x.png)
+.details-cal-day
+    color: #fff
+    display: block
+    font-size: 300%
+    font-weight: bold
+    margin: 0.25em 0
+    text-shadow: 1px 1px 0 #000
 
-.details-completed-true
-    background-image: url(../images/check.png)
+.details-day
+    padding: 18px 0
+    text-align: center
+
+.details-day-name
+    color: #fff
+    display: block
+    font-size: 200%
+    text-shadow: 1px 1px 0 #000
+
+.details-link
+    border-radius: 0.35em
+    background: rgba(166, 186, 191, 0.15)
+    margin: 1em 0
+    padding: 0.5em 0
+
+.details-toggle
+    margin: 0.5em 0
 
 .habit
     color: #333

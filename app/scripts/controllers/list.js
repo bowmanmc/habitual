@@ -35,8 +35,8 @@ function ($scope, $location, habitService, chainService) {
 			habit.chain[today].completed === true) {
 			habit.completed_today = true;
 		}
-		var wayback = moment().subtract(100, 'days');
-		habit.date_started = wayback;
+		//var wayback = moment().subtract(100, 'days');
+		//habit.date_started = wayback;
 		var chain = chainService.getFilledOutChain(habit);
 		chain.reverse();
 		habit.chain = chain;

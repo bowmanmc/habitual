@@ -1,26 +1,29 @@
 html,body{height:100%}
-body{background:#e8e0dc;color:#212526}
-h1,h2,h3{text-shadow:1px 1px 0 #fff}
+body{background-image:url("../images/night-lights-2048x2048.jpg");background-repeat:no-repeat;background-attachment:fixed;background-size:cover !important;-webkit-background-size:cover !important;color:#f3f3f3}
+h1,h2,h3{color:#fff;text-shadow:1px 1px 0 #000}
 hr{background:#ff9502;color:#ff9502;border:none;height:1px}
 label{font-size:120%}
 li{list-style:none}
 div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
-.card{border:1px solid #f3f6f9;border-radius:.35em;box-shadow:0 0 3px #444;margin:1em 0;padding:.25em;background:rgba(166,186,191,0.25)}
-.card-chain{border-bottom:1px solid #999;padding:5px 0;word-wrap:break-word;text-align:center}
+.card{border-radius:.35em;margin:1em 0;padding:.25em;background:rgba(166,186,191,0.15)}
+.card-chain{border-bottom:1px solid #333;padding:5px 0;word-wrap:break-word;text-align:center}
 .card-link{background-color:#bbb;margin-right:1px;padding-right:2px}
 .card-link-true{background:#8fc800;background:-moz-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#8fc800),color-stop(100%,#419e00));background:-webkit-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-ms-linear-gradient(top,#8fc800 0%,#419e00 100%);background:linear-gradient(to bottom,#8fc800 0%,#419e00 100%);}
-.card-title{border-top:1px solid #fff;font-weight:bold;padding-top:5px;text-align:center;text-shadow:1px 1px 0 #fff;width:100%}
+.card-title{border-top:1px solid #999;color:#eee;padding-top:5px;text-align:center;text-shadow:1px 1px 0 #000;width:100%}
 .card-toggle{margin:0 auto}
 .center{text-align:center}
 .chain{width:100%}
 .content{margin-top:57px;padding-bottom:.5em}
 .daily-status{text-align:center;width:20%}
-.day{background:rgba(166,186,191,0.25);border:1px solid #f3f6f9;border-top:none;border-radius:.35em;border-top-left-radius:0;border-top-right-radius:0;box-shadow:0 0 3px #444;font-weight:bold;font-size:1.1em;padding:57px .05em .5em .05em;text-shadow:1px 1px 0 #fff}
-.details{background:#e8e0dc;color:#333;height:100%;padding-top:57px;text-shadow:1px 1px 0 #fff}
+.day{background:rgba(166,186,191,0.15);border:none;border-top:none;border-radius:.35em;border-top-left-radius:0;border-top-right-radius:0;color:#eee;font-size:1.1em;padding:57px .05em .5em .05em;text-shadow:1px 1px 0 #000}
+.details{color:#ddd;padding:57px 0;text-shadow:1px 1px 0 #000}
 .details-btns{margin:3em 0}
-.details-completed{background-size:100%;background-repeat:no-repeat;background-position:center;opacity:.23;width:20%}
-.details-completed-false{background-image:url("../images/x.png")}
-.details-completed-true{background-image:url("../images/check.png")}
+.details-cal{border-radius:.35em;padding:.5em .25em 0 .5em;text-align:center}
+.details-cal-day{color:#fff;display:block;font-size:300%;font-weight:bold;margin:.25em 0;text-shadow:1px 1px 0 #000}
+.details-day{padding:18px 0;text-align:center}
+.details-day-name{color:#fff;display:block;font-size:200%;text-shadow:1px 1px 0 #000}
+.details-link{border-radius:.35em;background:rgba(166,186,191,0.15);margin:1em 0;padding:.5em 0}
+.details-toggle{margin:.5em 0}
 .habit{color:#333;margin:0 auto;text-shadow:none;width:98%}
 .habit-overview{padding-bottom:.75em;width:80%}
 .habit-toggle{background-image:url("../images/status-toggle.png");background-repeat:no-repeat;background-position:center;background-size:100%;margin:auto;width:64px;height:64px}
@@ -33,7 +36,7 @@ div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .link{border:1px solid #bbb;margin-right:1px;padding-right:5px}
 .link-true{background:#8fc800;background:-moz-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#8fc800),color-stop(100%,#419e00));background:-webkit-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-ms-linear-gradient(top,#8fc800 0%,#419e00 100%);background:linear-gradient(to bottom,#8fc800 0%,#419e00 100%);border:1px solid #bbb}
 .nav-loc,.nav-loc.ng-enter{animation:nav_fade 350ms linear;-webkit-animation:nav_fade 350ms linear;-webkit-animation-iteration-count:1;-webkit-animation-fill-mode:forwards}
-.navigation{background:rgba(33,37,38,0.97);border-bottom:1px solid #ff9502;box-shadow:0 -1px 7px #000;padding:7px 0}
+.navigation{background:rgba(16,12,0,0.9);border-bottom:1px solid #ff9502;box-shadow:0 -1px 7px #000;padding:7px 0}
 .pointer{cursor:pointer}
 .right{text-align:right}
 .start{background:#212526;color:#fff6f4;height:100%;text-shadow:1px 1px 0 #000;padding:1.5em}

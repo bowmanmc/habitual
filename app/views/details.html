@@ -1,42 +1,51 @@
 
 <hbt-navbar button-type='list'></hbt-navbar>
 
-<div class="container-fluid details">
+<div class="details">
+
+<div class="container-fluid">
   <div class="row-fluid">
     <div class="span12">
-<!-- Habit Details start -->
 
 <h1>{{habit.text}}</h1>
-
 <p>
   You got started on this habit {{tracked_from}},
   and have completed it on {{stats.completed_links}} of the last {{stats.total_links}} days.
 </p>
 
-<table class="habits">
-  <!-- Each Habit -->
-  <tr ng-repeat="link in chain" class=""
-    ng-class="{ 'just-toggled': $index == toggledIndex }"
-    ng-click="toggleLink(link.link_date, $index)">
-    <td class="habit-overview">
-      <h2>{{link.day_main}}</h2>
-      <p>
-        {{link.day_sub}} 
-        <span ng-switch="link.completed">
-          <span ng-switch-when="true"> - done.</span>
-          <span ng-switch-default> - skipped.</span>
-        </span>
-      </p>
-    </td>
-    <td class="details-completed details-completed-{{link.completed}}">
-      &nbsp;
-    </td>
-  </tr>
-</table>
+    </div>
+  </div><!-- row -->
+
+
+<!-- Each Habit -->
+<div ng-repeat="link in chain" class="row-fluid details-link">
+  <div class="span3">
+    <div class="details-cal">
+      <span class="details-cal-day">{{link.day_num}}</span>
+      <span class="details-cal-month">{{link.day_month}}</span>
+    </div>
+  </div>
+
+  <div class="span6">
+    <div class="details-day">
+      <span class="details-day-name">{{link.day_main}}</span>
+      <span ng-switch="link.completed">
+        <span ng-switch-when="true">completed</span>
+        <span ng-switch-default class="hidden">skipped</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="span3">
+    <div class="details-toggle">
+      <div class="habit-toggle"
+        ng-class="{ 'habit-toggle-on': link.completed }"
+        ng-click="toggleLink(link.link_date, $index)">&nbsp;</div>
+    </div>
+  </div>
+</div>
 
 <!-- Habit Details end -->
-    </div><!-- span -->
-  </div><!-- row -->
 
   <div class="row-fluid details-btns">
     <div class="span12">
@@ -53,3 +62,5 @@
     </div>
   </div>
 </div><!-- container -->
+
+</div><!-- details -->
