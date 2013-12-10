@@ -7,9 +7,7 @@ $background_color_bottom = #ff5a02
 $icon_color = #bf4402
 //$text_color = #212526
 $text_color = #f3f3f3
-//$navbar_color = rgba(33, 37, 38, 0.97)
-//$navbar_color = rgba(38, 27, 73, 0.97)
-$navbar_color = rgba(16, 12, 0, 0.90)
+$navbar_color = rgba(8, 4, 0, 0.90)
 $title_shadow = #000
 $habit_background = #e8e0dc
 $link_on_color = #8fc800
@@ -27,20 +25,7 @@ html, body
 
 body
     //background: $habit_background
-    //background: #1F1620
-    //background: #100b10
-    //background: #190d06
-    //background-image: url('../images/night-lights-2048x2048.jpg')
-    //background-image: url('../images/red-leaves-2048.jpg')
-    //background-image: url('../themes/balloons-_-o-_-8708450806.jpg')
-    //background-image: url('../themes/window-lights-qmnonic-2247120661.jpg')
-    //background-image: url('../themes/circles-ashi-205541261.jpg')
-    //background-image: url('../themes/circles-purple-ashi-205541261.jpg')
-    //background-image: url('../themes/circles-orange-ashi-205541261.jpg')
-    //background-image: url('../themes/circles-purple.jpg')
-    //background-image: url('../themes/hamburg-eriwst-4887906838.jpg')
-    //background-image: url('../themes/city-11087.jpg')
-    background-image: url('../themes/balloon-8480.jpg')
+    background-image: url('../themes/highway-216090.jpg')
     background-repeat: no-repeat
     background-attachment: fixed
     background-size: cover !important
@@ -49,6 +34,7 @@ body
 
 h1, h2, h3
     color: #fff
+    letter-spacing: 0.075em
     text-shadow: 1px 1px 0 $title_shadow
 
 hr
@@ -70,9 +56,7 @@ div, img, span, td, tr {
 }
 
 .card
-    //border: 1px solid #f3f6f9
     border-radius: 0.35em
-    //box-shadow: 0 0 3px #444
     margin: 1em 0
     padding: 0.25em
     background: rgba(166, 186, 191, 0.15)
@@ -85,7 +69,6 @@ div, img, span, td, tr {
 
 .card-link
     background-color: $link_off_color
-    //border: 1px solid $link_off_color
     margin-right: 1px
 
 .card-link-true
@@ -99,7 +82,6 @@ div, img, span, td, tr {
 .card-title {
 	border-top: 1px solid #999;
     color: #eee;
-    //font-weight: bold;
     padding-top: 5px;
     text-align: center;
     text-shadow: 1px 1px 0 #000;
@@ -112,58 +94,51 @@ div, img, span, td, tr {
 .center 
     text-align: center
 
-.chain
-    width: 100%
-
 .content
     margin-top: $nav_height
     padding-bottom: 0.5em
 
-.daily-status
-    text-align: center
-    width: 20%
-
 .day
     background: rgba(166, 186, 191, 0.15)
-    //border: 1px solid #f3f6f9
     border: none
     border-top: none
     border-radius: 0.35em
     border-top-left-radius: 0
     border-top-right-radius: 0
-    //box-shadow: 0 0 3px #444
     color: #eee
-    //font-weight: bold
     font-size: 1.10em
-    //letter-spacing: 0.075em
     padding: $nav_height 0.05em 0.5em 0.05em
     text-shadow: 1px 1px 0 #000
 
 .details
-    //background: $habit_background
-    color: #ddd
-    padding: $nav_height 0
+    color: #eee
+    padding-top: $nav_height
     text-shadow: 1px 1px 0 #000
 
 .details-btns
     margin: 3.0em 0
 
 .details-cal
-    border-radius: 0.35em
-    padding: 0.5em 0.25em 0 0.5em
+    padding: 0.5em 0.25em
     text-align: center
 
 .details-cal-day
     color: #fff
     display: block
-    font-size: 275%
+    font-size: 250%
     font-weight: bold
     margin: 0.25em 0
     text-shadow: 1px 1px 0 #000
 
 .details-day
-    padding: 18px 0
+    padding-top: 1.25em
     text-align: center
+
+.details-day-completed
+    color: #ddd
+    font-size: 85%
+    letter-spacing: 0.085em
+    margin: 0.25em 0
 
 .details-day-name
     color: #fff
@@ -175,10 +150,10 @@ div, img, span, td, tr {
     border-radius: 0.35em
     background: rgba(166, 186, 191, 0.15)
     margin: 1em 0
-    padding: 0.5em 0
+    //padding: 0.25em 0
 
 .details-toggle
-    margin: 0.5em 0
+    margin: 0.5em
 
 .habit
     color: #333
@@ -196,8 +171,8 @@ div, img, span, td, tr {
     background-position: center
     background-size: 100%
     margin: auto
-    width: 64px
-    height: 64px
+    width: 54px
+    height: 54px
 
 .habit-toggle-on
     background-image: url(../images/status-toggle-on.png)
@@ -274,14 +249,15 @@ div, img, span, td, tr {
     text-align: right
 
 .settings
-    background-color: #ccc
-    color: #333
-    height: 100%
-    padding-top: $nav_height
+    background: rgba(166, 186, 191, 0.15)
+    color: #eee
+    border-radius: 0.35em
+    margin: 1em 0
+    padding: $nav_height 0
+    text-shadow: 1px 1px 0 #000
 
 .settings h1, h2
-    color: #222
-    text-shadow: 1px 1px 0 #fff
+    color: #fff
 
 .start
     background: #212526
@@ -300,6 +276,6 @@ div, img, span, td, tr {
 .underline
     text-decoration: underline
 
-.view
-    height: 100%
+//.view
+//    height: 100%
 

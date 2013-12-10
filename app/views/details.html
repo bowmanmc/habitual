@@ -30,8 +30,8 @@
     <div class="details-day">
       <span class="details-day-name">{{link.day_main}}</span>
       <span ng-switch="link.completed">
-        <span ng-switch-when="true">completed</span>
-        <span ng-switch-default class="hidden">skipped</span>
+        <div ng-switch-when="true" class="details-day-completed">completed</div>
+        <div ng-switch-default class="hidden">skipped</div>
       </span>
     </div>
   </div>

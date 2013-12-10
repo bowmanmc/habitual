@@ -43,3 +43,6 @@ app.config(function ($routeProvider) {
         redirectTo: '/'
     });
 });
+
+angular.module('habitual').value('$anchorScroll', angular.noop);
+
