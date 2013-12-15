@@ -44,7 +44,7 @@ div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .right{text-align:right}
 .settings{background:rgba(166,186,191,0.15);color:#eee;border-radius:.35em;margin-top:57px;padding:1.5em;text-shadow:1px 1px 0 #000}
 .settings h1,h2{color:#fff}
-.start{background:#212526;color:#fff6f4;height:100%;text-shadow:1px 1px 0 #000;padding:1.5em}
+.start{color:#fff6f4;text-shadow:1px 1px 0 #000;padding:1.5em}
 .start h1{margin:.75em 0;text-shadow:1px 1px 0 #000}
 .toggle-btn{margin:2em .5em 2em 0}
 .underline{text-decoration:underline}
