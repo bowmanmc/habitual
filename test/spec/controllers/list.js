@@ -41,7 +41,7 @@ describe('Controller: ListCtrl', function () {
     }));
 
     it('should have one item in the habits array', function() {
-        expect(scope.columns).toBeDefined();
+        expect(scope.habits).toBeDefined();
     });
 
 });

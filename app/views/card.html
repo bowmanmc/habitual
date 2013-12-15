@@ -12,28 +12,29 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
+    <div class="span12 center">
 
-  <!-- Column -->
-  <div ng-repeat="column in columns" class="span6">
-    <div ng-repeat="habit in column" 
-         class="card"
-         ng-class="{'just-toggled': ($index == toggledIndex && $parent.$index == toggledColumn)}">
+      <div ng-repeat="habit in habits" 
+           class="card"
+           ng-class="{'just-toggled': ($index == toggledIndex)}">
 
-      <div class="card-toggle habit-toggle" 
-        ng-click="toggleStatus(habit.id, $parent.$index, $index)"
-        ng-class="{ 'habit-toggle-on': habit.completed_today }">
-        &nbsp;
-      </div>
-      <div class="card-chain">
-        <span ng-repeat="link in habit.chain"
-          ><span class="card-link card-link-{{link.completed}}"
-          ><img src="images/blank.gif" width="2"/></span></span>
-      </div>
-      <div class="card-title" ng-click="loadDetails(habit.id)">
-        {{habit.text}}
-      </div>
-    </div>
-  </div>
+        <div class="card-toggle habit-toggle" 
+          ng-click="toggleStatus(habit.id, $index)"
+          ng-class="{ 'habit-toggle-on': habit.completed_today }">
+          &nbsp;
+        </div>
 
-  </div>
+        <div class="card-chain">
+          <span ng-repeat="link in habit.chain"
+            ><span class="card-link card-link-{{link.completed}}"
+            ><img src="images/blank.gif" width="2"/></span></span>
+        </div>
+
+        <div class="card-title" ng-click="loadDetails(habit.id)">
+          {{habit.text}}
+        </div>
+
+      </div>
+    </div> <!-- span12 -->
+  </div> <!-- row -->
 </div>

@@ -4,7 +4,6 @@ angular.module('habitual').controller('ListCtrl',
 function ($scope, $location, habitService, chainService) {
 
 	$scope.toggledIndex = -1;
-	$scope.toggledColumn = -1;
 
 	$scope.loadHabits = function() {
 		var habitList = habitService.getHabits();
@@ -24,8 +23,8 @@ function ($scope, $location, habitService, chainService) {
 			$scope.fillOutHabit(habit);
 			habits.push(habit);
 		}
-
-		return habits;
+		
+		$scope.habits = habits;
 	};
 
 	$scope.fillOutHabit = function(habit) {
@@ -50,43 +49,26 @@ function ($scope, $location, habitService, chainService) {
 		$scope.day = now.format('dddd, MMMM Do YYYY');
 	};
 
-	$scope.prepareColumns = function(habits) {
-		$scope.columns = [[], []];
-
-		var i, h;
-		var colId = 0;
-		var len = habits.length;
-		for (i = 0; i < len; i++) {
-			h = habits[i];
-			$scope.columns[colId].push(h);
-			colId++;
-			if (colId >= $scope.columns.length) {
-				colId = 0;
-			}
-		}
-	};
-
 	// When a particular list item is clicked
 	$scope.loadDetails = function(habitId) {
 		$location.path('/habit/' + habitId);
 	};
 
 	// When the status button on a particular list item is clicked
-	$scope.toggleStatus = function(habitId, column, index) {
+	$scope.toggleStatus = function(habitId, index) {
 		var now = moment().format('YYYY-MM-DD');
 		var habit = habitService.getHabit(habitId);
 		chainService.toggle(habit, now);
 		habitService.saveHabit(habit);
-		console.log('Toggling index: ' + column+ '.' + index);
+		console.log('Toggling index: ' + index);
 
-		$scope.toggledColumn = column;
 		$scope.toggledIndex = index;
 
 		$scope.fillOutHabit(habit);
-		$scope.columns[column][index] = habit;
+		$scope.habits[index] = habit;
 	};
 
 	// load the habits for the list
-	$scope.prepareColumns($scope.loadHabits());
+	$scope.loadHabits();
 	$scope.initDate();
 });

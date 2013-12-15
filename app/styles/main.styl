@@ -70,10 +70,13 @@ div, img, span, td, tr {
     text-shadow: 1px 1px 0 #000
 
 .card
-    border-radius: 0.35em
-    margin: 1em 0
-    padding: 0.25em
     background: rgba(166, 186, 191, 0.15)
+    border-radius: 0.35em
+    //float: left
+    display: inline-block
+    margin: 1em
+    padding: 0.25em
+    width: 132px
 
 .card-chain
 	//border-bottom: 1px solid #333
@@ -94,13 +97,15 @@ div, img, span, td, tr {
     background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
 
 .card-title {
-	//border-top: 1px solid #999
     border-top: 1px solid rgba($background_color_top, 0.25);
     color: #eee;
+    float: left;
+    //height: 64px;
     padding-top: 5px;
     text-align: center;
     text-shadow: 1px 1px 0 #000;
 	width: 100%;
+    word-wrap: break-word;
 }
 
 .card-toggle
@@ -108,6 +113,10 @@ div, img, span, td, tr {
 
 .center 
     text-align: center
+
+.constrain-width
+    margin: 0 auto
+    max-width: 512px
 
 .content
     margin-top: $nav_height
@@ -267,7 +276,7 @@ div, img, span, td, tr {
     background: rgba(166, 186, 191, 0.15)
     color: #eee
     border-radius: 0.35em
-    margin: $nav_height 0
+    margin-top: $nav_height
     padding: 1.5em
     text-shadow: 1px 1px 0 #000
 
