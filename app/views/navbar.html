@@ -3,13 +3,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-<!--
-    <div class="span2 left">
-<a href="#/">
-  <img src="images/logo-nav-white.png" />
-</a>
-    </div>
--->
+
     <div class="span8">
 <!-- Left Hand Button -->
 <div class="brand" ng-switch="buttonType">
@@ -17,16 +11,14 @@
   <!-- list - Back to List -->
   <div class="nav-loc" ng-switch-when="list">
     <a href="#/">
-      <img src="images/back.png" /><img 
-        src="images/list.png" />
+      <img src="images/list.png" />
     </a>
   </div><!-- list -->
 
   <!-- details - Back to Details -->
   <div class="nav-loc" ng-switch-when="details">
     <a ng-click="goBack()" class="pointer">
-      <img src="images/back.png" /><img 
-        src="images/details2.png" />
+      <img src="images/details2.png" />
     </a>
   </div>
 

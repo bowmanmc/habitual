@@ -1,5 +1,5 @@
 html,body{height:100%}
-body{background-color:#000;background-image:url("../themes/highway-216090.jpg");background-repeat:no-repeat;background-attachment:fixed;background-size:cover !important;-webkit-background-size:cover !important;color:#f3f3f3}
+body{background-color:#000;background-image:url("../themes/highway-216090.jpg");background-repeat:no-repeat;background-attachment:fixed;background-size:cover !important;-webkit-background-size:cover !important;color:#f3f3f3;font-family:'Lato',sans-serif}
 h1,h2,h3{color:#fff;letter-spacing:.075em;text-shadow:1px 1px 0 #000}
 hr{background:#ff9502;color:#ff9502;border:none;height:1px}
 label{font-size:120%}
@@ -8,8 +8,9 @@ a{color:#ff9502}
 a:hover{color:#ff9502;text-decoration:underline}
 div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .banner{font-size:250%;margin:1em 0;text-align:center;text-shadow:1px 1px 0 #000}
-.card{background:rgba(166,186,191,0.15);border-radius:.35em;display:inline-block;margin:1em;padding:.25em;width:132px}
+.card{background:rgba(166,186,191,0.15);border-radius:.35em;display:inline-block;margin:.5em;padding:.25em;width:132px}
 .card-chain{padding:5px 0;word-wrap:break-word;text-align:center}
+.card-details-link{float:right;opacity:.5}
 .card-link{background-color:#bbb;margin-right:1px}
 .card-link-true{background:#8fc800;background:-moz-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#8fc800),color-stop(100%,#419e00));background:-webkit-linear-gradient(top,#8fc800 0%,#419e00 100%);background:-ms-linear-gradient(top,#8fc800 0%,#419e00 100%);background:linear-gradient(to bottom,#8fc800 0%,#419e00 100%);}
 .card-title{border-top:1px solid rgba(255,149,2,0.25);color:#eee;float:left;padding-top:5px;text-align:center;text-shadow:1px 1px 0 #000;width:100%;word-wrap:break-word}
