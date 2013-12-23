@@ -8,7 +8,7 @@ a{color:#ff9502}
 a:hover{color:#ff9502;text-decoration:underline}
 div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .banner{font-size:250%;margin:1em 0;text-align:center;text-shadow:1px 1px 0 #000}
-.card{background:rgba(166,186,191,0.15);border-radius:.35em;display:inline-block;margin:.5em;padding:.25em;width:132px}
+.card{background:rgba(166,186,191,0.15);border-radius:.35em;display:inline-block;margin:.5em;margin-tope:.2em;padding:.25em;width:132px}
 .card-chain{padding:5px 0;word-wrap:break-word;text-align:center}
 .card-details-link{float:right;opacity:.5}
 .card-link{background-color:#bbb;margin-right:1px}

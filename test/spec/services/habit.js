@@ -2,45 +2,32 @@
 
 describe('Service: HabitService', function () {
 
-    var habitSvc, scope, location, localStorage;
-    //beforeEach(module('habitual'));
+    var habitSvc, scope, q, deferred;
+
     beforeEach(function() {
         module('habitual.services.habit');
 
-        inject(function(habitService, localStorageService) {
+        inject(function(habitService, $rootScope, $q) {
+            deferred = $q.defer();
+
+            scope = $rootScope.$new();
             habitSvc = habitService;
-            localStorage = localStorageService;
+
+            deferred.resolve('resolveData');
         });
-
-        // Setup our initial list of habits
-        localStorage.clearAll();
-        habitSvc.createNewHabit('Write tests first.');
-        habitSvc.createNewHabit('Modularize');
-        habitSvc.createNewHabit('Rock and Roll');
     });
 
-    it('Should remove habits', function() {
-        var habits = habitSvc.getHabits();
-        expect(habits.length).toBe(3);
-        var id = habits[0].id;
-        console.log('Removing habit: ' + id);
-        habitSvc.deleteHabit(id);
-        expect(habitSvc.getHabits().length).toBe(2);
-    });
+    // it('Should get a database handle', function() {
+    //     console.log('getting database...');
+    //     var result;
+    //     habitSvc.getDatabase().then(function(db) {
+    //         expect(db).toBeDefined();
+    //         console.log('Got database: ' + db);
+    //         result = db;
+    //     });
+    //     scope.$apply();
+    //     expect(result).toBeDefined();
+    // });
 
-    it('Should return null for bad keys', function() {
-        var habits = habitSvc.getHabits();
-        expect(habits.length).toBe(3);
-        expect(habitSvc.getHabit('foobarbaz')).toBeNull();
-    });
-
-    it('Should lookup habits by key or id', function() {
-        var habits = habitSvc.getHabits();
-        expect(habits.length).toBe(3);
-        var id = habits[0].id;
-        var key = 'habit.' + id;
-        expect(habitSvc.getHabit(id)).not.toBeNull();
-        expect(habitSvc.getHabit(key)).not.toBeNull();
-    });
 });
 

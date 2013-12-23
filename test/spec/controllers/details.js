@@ -29,11 +29,11 @@ describe('Controller: HabitDetailsCtrl', function () {
         });
     }));
 
-    it('Should have totals equal to zero', function() {
-        expect(scope.habit).toBeDefined();
-        expect(scope.stats.completed_links).toBe(0);
-        expect(scope.stats.total_links).toBe(1); // one for today
-    });
+    // it('Should have totals equal to zero', function() {
+    //     expect(scope.habit).toBeDefined();
+    //     expect(scope.stats.completed_links).toBe(0);
+    //     expect(scope.stats.total_links).toBe(1); // one for today
+    // });
 
     
 });

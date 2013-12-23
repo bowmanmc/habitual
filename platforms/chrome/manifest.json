@@ -1,0 +1,15 @@
+{
+  "name": "Habitual",
+  "description": "Habit Tracking Application",
+  "version": "0.1",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { 
+      "16": "icons/logo-72.png", 
+      "128": "icons/logo-120.png" 
+  }
+}
+

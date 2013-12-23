@@ -4,7 +4,7 @@ var app = angular.module('habitual', [
     'habitual.directives.navbar',
     'habitual.services.chain',
     'habitual.services.habit',
-    'LocalStorageModule',
+//    'LocalStorageModule',
     'ngAnimate',
     'ngRoute',
     'ngTouch'
