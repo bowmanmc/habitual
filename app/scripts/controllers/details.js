@@ -11,26 +11,32 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 
         habitService.getHabit($routeParams.habitId).then(function(habit) {
             $scope.habit = habit;
-            // Loop through and get the total_links, completed_links, and format each
-            // link in the chain for viewing
             $scope.chain = chainService.getFilledOutChain(habit).reverse();
-            $scope.stats = chainService.getChainStats($scope.chain);
-
-            if ($scope.stats.completed_links == $scope.stats.total_links) {
-                $scope.stats.completed_links = 'each';
-            }
-
-            $scope.tracked_from = moment($scope.habit.date_started, 'YYYY-MM-DD').fromNow();
+            $scope.updateStats(habit);
         });
+    };
+
+    $scope.updateStats = function(habit) {
+        var chain = chainService.getFilledOutChain(habit).reverse();
+        $scope.stats = chainService.getChainStats(chain);
+
+        if ($scope.stats.completed_links == $scope.stats.total_links) {
+            $scope.stats.completed_links = 'each';
+        }
+
+        $scope.tracked_from = moment(habit.date_started, 'YYYY-MM-DD').fromNow();
     };
 
     $scope.toggleLink = function(day, $index) {
         console.log('Toggling day: ' + day);
         var habit = $scope.habit;
-        chainService.toggle(habit, day);
+        var link = chainService.toggle(habit, day);
+        $scope.chain[$index] = link;
         habitService.saveHabit(habit).then(function() {
             $scope.habit = habit;
             $scope.toggledIndex = $index;
+            //$scope.initializeScope();
+            $scope.updateStats(habit);
         });
     };
 

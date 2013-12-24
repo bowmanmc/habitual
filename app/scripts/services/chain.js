@@ -33,6 +33,7 @@ chainServices.service('chainService', function() {
         link.last_updated = now;
 
         habit.chain[day] = link;
+        return link;
     };
 
     this.getChainStats = function(chain) {

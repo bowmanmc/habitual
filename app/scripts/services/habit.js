@@ -57,13 +57,13 @@ habitServices.service('habitService', function($q) {
 
         habit.last_updated = moment().format('YYYY-MM-DD');
         this.getDatabase().then(function(db) {
-            console.log('Got the DB, adding the habit...');
+            console.log('Got the DB, saving the habit...');
             var habitStore = db.transaction(['habits'], 'readwrite').objectStore('habits');
             var putReq = habitStore.put(habit);
             putReq.onsuccess = function(event) {
                 var id = event.target.result;
                 deferred.resolve(id);
-            }
+            };
         });
 
         return deferred.promise;
@@ -114,7 +114,11 @@ habitServices.service('habitService', function($q) {
                 var cursor = event.target.result;
                 if (cursor) {
                     console.log('Adding habit ' + cursor.key);
-                    habits.push(cursor.value);
+                    var habit = cursor.value;
+                    // wayback - uncomment the next two lines to test full chains
+                    var wayback = moment().subtract(100, 'days');
+                    habit.date_started = wayback;
+                    habits.push(habit);
                     i++;
                     cursor.continue();
                 }
@@ -141,6 +145,9 @@ habitServices.service('habitService', function($q) {
             var getReq = habitStore.get(id);
             getReq.onsuccess = function(event) {
                 var result = event.target.result;
+                // wayback - uncomment the next two lines to test full chains
+                var wayback = moment().subtract(100, 'days');
+                result.date_started = wayback;
                 console.log('Found it: ' + angular.toJson(result));
                 deferred.resolve(result);
             };
