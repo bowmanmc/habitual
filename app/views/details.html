@@ -21,14 +21,14 @@
 <div ng-repeat="link in chain track by $index" class="row-fluid details-link">
   <div class="span3">
     <div class="details-cal">
-      <span class="details-cal-day">{{link.day_num}}</span>
-      <span class="details-cal-month">{{link.day_month}}</span>
+      <span class="details-cal-day">{{link.link_date | day_num}}</span>
+      <span class="details-cal-month">{{link.link_date | day_month}}</span>
     </div>
   </div>
 
   <div class="span6">
     <div class="details-day">
-      <span class="details-day-name">{{link.day_main}}</span>
+      <span class="details-day-name">{{link.link_date | day_week}}</span>
       <span ng-switch="link.completed">
         <div ng-switch-when="true" class="details-day-completed">completed</div>
         <div ng-switch-default class="hidden">skipped</div>

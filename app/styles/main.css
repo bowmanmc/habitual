@@ -1,5 +1,5 @@
 html,body{height:100%}
-body{background-color:#000;background-image:url("../themes/highway-216090.jpg");background-repeat:no-repeat;background-attachment:fixed;background-size:cover !important;-webkit-background-size:cover !important;color:#f3f3f3;font-family:'Lato',sans-serif}
+body{background-color:#000;background-image:url("../themes/highway-216090.jpg");background-repeat:no-repeat;background-attachment:fixed;background-size:cover !important;-webkit-background-size:cover !important;color:#f3f3f3;font-family:'Lato',sans-serif;overflow-y:scroll}
 h1,h2,h3{color:#fff;letter-spacing:.075em;text-shadow:1px 1px 0 #000}
 hr{background:#ff9502;color:#ff9502;border:none;height:1px}
 label{font-size:120%}

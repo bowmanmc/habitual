@@ -7,6 +7,9 @@
       "scripts": ["background.js"]
     }
   },
+  "permissions": [
+    "storage"
+  ],
   "icons": { 
       "16": "icons/logo-72.png", 
       "128": "icons/logo-120.png" 

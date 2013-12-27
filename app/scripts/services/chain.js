@@ -7,31 +7,23 @@ chainServices.service('chainService', function() {
     this.MAX_LENGTH = 42;
     var DAY_FORMAT = 'YYYY-MM-DD';
 
-    this.createLink = function(day) {
+    this.createLink = function(day, on) {
         var now = moment().format(DAY_FORMAT);
         return {
-            completed: false,
-            link_date: day,
-            date_created: now,
-            last_updated: now
+            completed: on,
+            link_date: day
         };
     };
 
     this.toggle = function(habit, day) {
-        var link = habit.chain[day];
-        if (typeof link === 'undefined') {
-            link = this.createLink(day);
-        }
-        if (link.completed === true) {
-            link.completed = false;
+        var vlink = habit.chain[day];
+        var link = null;
+        if (typeof vlink === 'undefined' || vlink.completed == false) {
+            link = this.createLink(day, true);
         }
         else {
-            link.completed = true;
+            link = this.createLink(day, false);
         }
-        var now = moment().format(DAY_FORMAT);
-        link.link_date = day;
-        link.last_updated = now;
-
         habit.chain[day] = link;
         return link;
     };
@@ -65,14 +57,8 @@ chainServices.service('chainService', function() {
             day = c.format(DAY_FORMAT);
             link = habit.chain[day];
             if (typeof link === 'undefined') {
-                link = this.createLink(day);
+                link = this.createLink(day, false);
             }
-
-            m = moment(link.link_date, 'YYYY-MM-DD');
-            link.day_main = m.format('dddd');
-            link.day_month = m.format('MMM');
-            link.day_num = m.format('D');
-
             results.push(link);
 
             // Should we keep going? Only go back until habit.date_started

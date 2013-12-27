@@ -2,9 +2,9 @@
 
 var app = angular.module('habitual', [
     'habitual.directives.navbar',
+    'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',
-//    'LocalStorageModule',
     'ngAnimate',
     'ngRoute',
     'ngTouch'
@@ -46,3 +46,4 @@ app.config(function ($routeProvider) {
 
 angular.module('habitual').value('$anchorScroll', angular.noop);
 
+chrome.storage.sync.clear();

@@ -4,45 +4,38 @@ var habitServices = angular.module('habitual.services.habit', []);
 
 habitServices.service('habitService', function($q) {
 
-    this.getDatabase = function() {
-        var deferred = $q.defer();
-        var request = window.indexedDB.open('habitual', 2);
+    var idx = 0;
 
-        request.onupgradeneeded = function (event) {
-            console.log('Upgrading habitual indexedDb...');
-            var thisDb = event.target.result;
-            var habitStore = thisDb.createObjectStore('habits', {
-                autoIncrement: true,
-                keyPath: 'id'
-            });
-            habitStore.createIndex('text_idx', 'text', {unique: false});
-            habitStore.createIndex('date_started_idx', 'date_started', {unique: false});
-            habitStore.createIndex('last_updated_idx', 'last_updated', {unique: false});
-        };
+    this.generateId = function() {
+        // Base it off of timestamp and an internal index
+        var result = '' + new Date().getTime() + idx;
+        idx++;
+        return result;
+    };
 
-        request.onsuccess = function (event) {
-            console.log('Got the DB! returning it...');
-            var db = event.target.result;
-            deferred.resolve(db); //pass the db object on to then()
-        };
-
-        request.onerror = function (e) {
-            console.error('Error when opening indexedDB');
-        };
-
-        return deferred.promise;
+    this.getKey = function(id) {
+        // make sure we're dealing with a string so we
+        // have the indexOf method
+        var key = '' + id;
+        if (key.indexOf('habit.') !== 0) {
+            key = 'habit.' + id;
+        }
+        return key;
     };
 
     this.createNewHabit = function(txt) {
         var deferred = $q.defer();
         var now = moment().format('YYYY-MM-DD');
+        var id = this.generateId();
         var habit = {
+            id: id,
             text: txt,
             date_created: now,
             date_started: now,
             last_reset: now,
             chain: {}
         };
+
         this.saveHabit(habit).then(function(id) {
             console.log('habit saved with id: ' + id);
             deferred.resolve(id);
@@ -52,20 +45,17 @@ habitServices.service('habitService', function($q) {
     };
 
     this.saveHabit = function(habit) {
-        console.log('saving habit: ' + habit.text);
+        console.log('saving habit: ' + habit.text + ' [' + habit.id + ']');
         var deferred = $q.defer();
 
         habit.last_updated = moment().format('YYYY-MM-DD');
-        this.getDatabase().then(function(db) {
-            console.log('Got the DB, saving the habit...');
-            var habitStore = db.transaction(['habits'], 'readwrite').objectStore('habits');
-            var putReq = habitStore.put(habit);
-            putReq.onsuccess = function(event) {
-                var id = event.target.result;
-                deferred.resolve(id);
-            };
+        var key = this.getKey(habit.id);
+        var toStore = {};
+        toStore[key] = habit;
+        console.log('Saving: ' + JSON.stringify(toStore));
+        chrome.storage.sync.set(toStore, function() {
+            deferred.resolve(habit.id);
         });
-
         return deferred.promise;
     };
 
@@ -88,76 +78,54 @@ habitServices.service('habitService', function($q) {
 
     this.deleteHabit = function(id) {
         var deferred = $q.defer();
-
-        this.getDatabase().then(function(db) {
-            console.log('Deleting habit: ' + id);
-            var habitStore = db.transaction(['habits'], 'readwrite').objectStore('habits');
-            habitStore.delete(id);
+        var key = this.getKey(id);
+        chrome.storage.sync.remove(key, function() {
             console.log('Deleted habit ' + id);
             deferred.resolve(id);
         });
-
         return deferred.promise;
     };
 
     this.getHabits = function() {
         var deferred = $q.defer();
         console.log('Getting habits!');
-        this.getDatabase().then(function(db) {
 
-            var habitStore = db.transaction(['habits'], 'readonly').objectStore('habits');
-            var req = habitStore.openCursor();
-
+        chrome.storage.sync.get(null, function(results) {
+            console.log('Loading: ' + JSON.stringify(results));
+            var keys = Object.keys(results);
             var habits = [];
-            var i = 0;
-            req.onsuccess = function(event) {
-                var cursor = event.target.result;
-                if (cursor) {
-                    console.log('Adding habit ' + cursor.key);
-                    var habit = cursor.value;
-                    // wayback - uncomment the next two lines to test full chains
-                    var wayback = moment().subtract(100, 'days');
-                    habit.date_started = wayback;
-                    habits.push(habit);
-                    i++;
-                    cursor.continue();
+            var i, habit, key;
+            var len = keys.length;
+            for (i = 0; i < len; i++) {
+                key = keys[i];
+                if (key.indexOf('habit.') !== 0) {
+                    console.log('Not a habit: ' + key);
+                    continue;
                 }
-                else {
-                    console.log('Got all (' + i + ') habits!');
-                    //console.log(angular.toJson(habits));
-                    deferred.resolve(habits);
-                }
-            };
+                habit = results[key];
+                // wayback - uncomment the next two lines to test full chains
+                var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
+                habit.date_started = wayback;
+                habits.push(habit);
+            }
+            deferred.resolve(habits);
         });
         return deferred.promise;        
     }; // getHabits
 
     this.getHabit = function(id) {
         var deferred = $q.defer();
-
-        this.getDatabase().then(function(db) {
-            console.log('Loading habit ' + id);
-            if (isNaN(id)) {
-                deferred.resolve(null);
-            }
-            id = parseInt(id);
-            var habitStore = db.transaction(['habits'], 'readonly').objectStore('habits');
-            var getReq = habitStore.get(id);
-            getReq.onsuccess = function(event) {
-                var result = event.target.result;
-                // wayback - uncomment the next two lines to test full chains
-                var wayback = moment().subtract(100, 'days');
-                result.date_started = wayback;
-                console.log('Found it: ' + angular.toJson(result));
-                deferred.resolve(result);
-            };
-            getReq.onerror = function(event) {
-                console.log('Habit with id: ' + id + ' not found!');
-                return null;
-                deferred.resolve(null);
-            };
+        var key = this.getKey(id);
+        console.log('Looking up habit [' + id + '] with key: ' + key);
+        chrome.storage.sync.get(key, function(result) {
+            //console.log('Found result: ' + JSON.stringify(result));
+            var habit = result[key];
+            // wayback - uncomment the next two lines to test full chains
+            var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
+            habit.date_started = wayback;
+            console.log('Found it: ' + angular.toJson(habit));
+            deferred.resolve(habit);
         });
-
         return deferred.promise;
     }; // getHabit
 

@@ -8,33 +8,21 @@ function ($scope, $location, habitService, chainService) {
 
     $scope.loadHabits = function() {
         console.log('loading habits!');
-        habitService.getDatabase().then(function(db) {
-            var tx = db.transaction(['habits'], 'readonly');
-            var habitStore = tx.objectStore('habits');
-            var cursorRequest = habitStore.openCursor();
-            var i = 0;
-            cursorRequest.onsuccess = function(event) {
-                var cursor = event.target.result;
-                if (cursor) {
-                    console.log('Loading habit ' + cursor.key);
-                    $scope.fillOutHabit(cursor.value);
-                    $scope.habits.push(cursor.value);
-                    $scope.$apply();
-                    i++;
-                    cursor.continue();
+        habitService.getHabits().then(function(habits) {
+            var i, habit;
+            var len = habits.length;
+            if (len < 1) {
+                console.log('Got only ' + len + ' habits...');
+                $location.path('/start');
+                if(!$scope.$$phase) $scope.$apply();
+            }
+            else {
+                for (i = 0; i < len; i++) {
+                    habit = habits[i];
+                    $scope.fillOutHabit(habit);
+                    $scope.habits.push(habit);
                 }
-                else {
-                    console.log('Loaded all (' + i + ') habits!' );
-                    //console.log('habits: ' + angular.toJson($scope.habits));
-                    if (i < 1) {
-                        // We don't have any habits stored. 
-                        // Go to the start page
-                        console.log('Got only ' + i + ' habits...');
-                        $location.path('/start');
-                        if(!$scope.$$phase) $scope.$apply();
-                    }
-                }
-            };
+            }
         });
     };
 
