@@ -29,6 +29,7 @@ function ($scope, $location, habitService, chainService) {
     $scope.fillOutHabit = function(habit) {
         var today = moment().format('YYYY-MM-DD');
         habit.completed_today = false;
+        console.log('habit: ' + angular.toJson(habit));
         if (typeof habit.chain[today] !== 'undefined' && 
             habit.chain[today].completed === true) {
             habit.completed_today = true;

@@ -5,6 +5,7 @@ var app = angular.module('habitual', [
     'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',
+    'habitual.services.storage',
     'ngAnimate',
     'ngRoute',
     'ngTouch'
@@ -45,5 +46,3 @@ app.config(function ($routeProvider) {
 });
 
 angular.module('habitual').value('$anchorScroll', angular.noop);
-
-chrome.storage.sync.clear();

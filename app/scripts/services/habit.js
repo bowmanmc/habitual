@@ -2,7 +2,7 @@
 
 var habitServices = angular.module('habitual.services.habit', []);
 
-habitServices.service('habitService', function($q) {
+habitServices.service('habitService', function($q, storageService) {
 
     var idx = 0;
 
@@ -53,9 +53,11 @@ habitServices.service('habitService', function($q) {
         var toStore = {};
         toStore[key] = habit;
         console.log('Saving: ' + JSON.stringify(toStore));
-        chrome.storage.sync.set(toStore, function() {
+
+        storageService.saveItem(toStore, function() {
             deferred.resolve(habit.id);
         });
+
         return deferred.promise;
     };
 
@@ -79,7 +81,8 @@ habitServices.service('habitService', function($q) {
     this.deleteHabit = function(id) {
         var deferred = $q.defer();
         var key = this.getKey(id);
-        chrome.storage.sync.remove(key, function() {
+        //chrome.storage.sync.remove(key, function() {
+        storageService.removeItem(key, function() {
             console.log('Deleted habit ' + id);
             deferred.resolve(id);
         });
@@ -90,7 +93,7 @@ habitServices.service('habitService', function($q) {
         var deferred = $q.defer();
         console.log('Getting habits!');
 
-        chrome.storage.sync.get(null, function(results) {
+        storageService.getAll(function(results) {
             console.log('Loading: ' + JSON.stringify(results));
             var keys = Object.keys(results);
             var habits = [];
@@ -103,9 +106,10 @@ habitServices.service('habitService', function($q) {
                     continue;
                 }
                 habit = results[key];
+                console.log('[' + key + '] = ' + angular.toJson(habit));
                 // wayback - uncomment the next two lines to test full chains
-                var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
-                habit.date_started = wayback;
+                //var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
+                //habit.date_started = wayback;
                 habits.push(habit);
             }
             deferred.resolve(habits);
@@ -117,12 +121,13 @@ habitServices.service('habitService', function($q) {
         var deferred = $q.defer();
         var key = this.getKey(id);
         console.log('Looking up habit [' + id + '] with key: ' + key);
-        chrome.storage.sync.get(key, function(result) {
+
+        storageService.getItem(key, function(result) {
             //console.log('Found result: ' + JSON.stringify(result));
             var habit = result[key];
             // wayback - uncomment the next two lines to test full chains
-            var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
-            habit.date_started = wayback;
+            //var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
+            //habit.date_started = wayback;
             console.log('Found it: ' + angular.toJson(habit));
             deferred.resolve(habit);
         });
