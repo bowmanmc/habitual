@@ -24,7 +24,7 @@
           &nbsp;
         </div>
 
-        <div class="card-chain">
+        <div class="card-chain" ng-click="loadDetails(habit.id)">
           <span ng-repeat="link in habit.chain track by $index"
             ><span class="card-link card-link-{{link.completed}}"
             ><img src="images/blank.gif" width="2"/></span></span>
