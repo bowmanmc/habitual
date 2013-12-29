@@ -48,7 +48,7 @@ storageServices.service('storageService', function($q) {
 
     this.getAll = function(callback) {
         if (useChrome) {
-            chrome.storage.get(null, callback);
+            chrome.storage.sync.get(null, callback);
             return;
         }
         var all = {};
@@ -60,7 +60,7 @@ storageServices.service('storageService', function($q) {
 
     this.getItem = function(key, callback) {
         if (useChrome) {
-            chrome.storage.get(key, callback);
+            chrome.storage.sync.get(key, callback);
             return;
         }
         var val = localStorage[key];
