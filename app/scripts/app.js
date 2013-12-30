@@ -2,6 +2,7 @@
 
 var app = angular.module('habitual', [
     'habitual.directives.navbar',
+    'habitual.filters.card',
     'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',

@@ -31,7 +31,7 @@
         </div>
 
         <div class="card-title" ng-click="loadDetails(habit.id)">
-          {{habit.text}}
+          {{habit.text | card_text:habit.trim}}
         </div>
 
       </div>

@@ -77,16 +77,15 @@ div, img, span, td, tr {
     border-radius: 0.35em
     //float: left
     display: inline-block
-    margin: 0.50em
-    margin-tope: 0.20em
+    margin: 1.0em 0.5em 0 0.5em
     padding: 0.25em
     width: 132px
 
 .card-chain
-	//border-bottom: 1px solid #333
-	padding: 5px 0
-	word-wrap: break-word
-	text-align: center
+    //border-bottom: 1px solid #333
+    padding: 5px 0
+    word-wrap: break-word
+    text-align: center
 
 .card-details-link
     //margin-right: 2px
@@ -109,16 +108,17 @@ div, img, span, td, tr {
     border-top: 1px solid rgba($background_color_top, 0.25);
     color: #eee;
     float: left;
-    //height: 64px;
+    height: 3.0em;
+    overflow: hidden;
     padding-top: 5px;
     text-align: center;
     text-shadow: 1px 1px 0 #000;
-	width: 100%;
+    width: 100%;
     word-wrap: break-word;
 }
 
 .card-toggle
-	margin: 0 auto
+    margin: 0 auto
 
 .center 
     text-align: center
@@ -184,6 +184,9 @@ div, img, span, td, tr {
     background: rgba(166, 186, 191, 0.15)
     margin: 1em 0
     //padding: 0.25em 0
+
+.details-title
+    word-wrap: break-word
 
 .details-toggle
     margin: 0.5em
@@ -307,6 +310,7 @@ div, img, span, td, tr {
     font-weight: 100
     letter-spacing: 0.085em
     padding: 7px 0
+    text-shadow: 1px 1px 0 #000
 
 .toggle-btn
     margin: 2em 0.5em 2em 0
@@ -314,6 +318,12 @@ div, img, span, td, tr {
 .underline
     text-decoration: underline
 
-//.view
-//    height: 100%
+.widthtest
+    position: absolute
+    left: 0
+    text-shadow: 1px 1px 0 #000;
+    //visibility: hidden;
+    top: -512px;
+    height: auto
+    width: auto
 

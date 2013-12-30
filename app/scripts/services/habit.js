@@ -23,13 +23,17 @@ habitServices.service('habitService', function($q, storageService) {
         return key;
     };
 
-    this.createNewHabit = function(txt) {
+    this.createNewHabit = function(txt, trim) {
+        if (typeof trim === 'undefined' || trim == null) {
+            trim = -1;
+        }
         var deferred = $q.defer();
         var now = moment().format('YYYY-MM-DD');
         var id = this.generateId();
         var habit = {
             id: id,
             text: txt,
+            trim: trim,
             date_created: now,
             date_started: now,
             last_reset: now,
@@ -94,7 +98,7 @@ habitServices.service('habitService', function($q, storageService) {
         console.log('Getting habits!');
 
         storageService.getAll(function(results) {
-            console.log('Loading: ' + JSON.stringify(results));
+            //console.log('Loading: ' + JSON.stringify(results));
             var keys = Object.keys(results);
             var habits = [];
             var i, habit, key;
@@ -106,7 +110,6 @@ habitServices.service('habitService', function($q, storageService) {
                     continue;
                 }
                 habit = results[key];
-                console.log('[' + key + '] = ' + angular.toJson(habit));
                 // wayback - uncomment the next two lines to test full chains
                 //var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
                 //habit.date_started = wayback;
