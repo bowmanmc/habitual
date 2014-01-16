@@ -2,7 +2,6 @@
 
 var app = angular.module('habitual', [
     'habitual.directives.navbar',
-    'habitual.filters.card',
     'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',
@@ -47,3 +46,12 @@ app.config(function ($routeProvider) {
 });
 
 angular.module('habitual').value('$anchorScroll', angular.noop);
+
+/**
+ * Analytics
+ * Chrome App - UA-46632544-2
+ **/
+console.log('Calling ga create...');
+ga('create', 'UA-46632544-3', {
+  'cookieDomain': 'auto'
+}); 

@@ -23,17 +23,13 @@ habitServices.service('habitService', function($q, storageService) {
         return key;
     };
 
-    this.createNewHabit = function(txt, trim) {
-        if (typeof trim === 'undefined' || trim == null) {
-            trim = -1;
-        }
+    this.createNewHabit = function(txt) {
         var deferred = $q.defer();
         var now = moment().format('YYYY-MM-DD');
         var id = this.generateId();
         var habit = {
             id: id,
             text: txt,
-            trim: trim,
             date_created: now,
             date_started: now,
             last_reset: now,
@@ -56,7 +52,7 @@ habitServices.service('habitService', function($q, storageService) {
         var key = this.getKey(habit.id);
         var toStore = {};
         toStore[key] = habit;
-        console.log('Saving: ' + JSON.stringify(toStore));
+        //console.log('Saving: ' + JSON.stringify(toStore));
 
         storageService.saveItem(toStore, function() {
             deferred.resolve(habit.id);
@@ -131,13 +127,10 @@ habitServices.service('habitService', function($q, storageService) {
             // wayback - uncomment the next two lines to test full chains
             //var wayback = moment().subtract(100, 'days').format('YYYY-MM-DD');
             //habit.date_started = wayback;
-            console.log('Found it: ' + angular.toJson(habit));
+            //console.log('Found it: ' + angular.toJson(habit));
             deferred.resolve(habit);
         });
         return deferred.promise;
     }; // getHabit
 
-    this.clearHabitual = function() {
-        //localStorageService.clearAll();
-    }
 });

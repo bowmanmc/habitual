@@ -3,8 +3,8 @@
 angular.module('habitual').controller('NavCtrl',
 function ($scope, $location, $window) {
 
-	$scope.loadAddScreen = function() {
-		$location.path('/add');
-	};
+    $scope.loadAddScreen = function() {
+        $location.path('/add');
+    };
 
 });

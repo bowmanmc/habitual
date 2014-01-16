@@ -25,7 +25,7 @@ storageServices.service('storageService', function($q) {
 
     this.saveItem = function(toStore, callback) {
         if (useChrome) {
-            chrome.storage.sync.set(toStore, callback);
+            chrome.storage.local.set(toStore, callback);
             return;
         }
         var key = Object.keys(toStore)[0];
@@ -39,7 +39,7 @@ storageServices.service('storageService', function($q) {
 
     this.removeItem = function(key, callback) {
         if (useChrome) {
-            chrome.storage.sync.remove(key, callback);
+            chrome.storage.local.remove(key, callback);
             return;
         }
         localStorage.removeItem(key);
@@ -48,7 +48,7 @@ storageServices.service('storageService', function($q) {
 
     this.getAll = function(callback) {
         if (useChrome) {
-            chrome.storage.sync.get(null, callback);
+            chrome.storage.local.get(null, callback);
             return;
         }
         var all = {};
@@ -60,13 +60,21 @@ storageServices.service('storageService', function($q) {
 
     this.getItem = function(key, callback) {
         if (useChrome) {
-            chrome.storage.sync.get(key, callback);
+            chrome.storage.local.get(key, callback);
             return;
         }
         var val = localStorage[key];
         var result = {};
         result[key] = angular.fromJson(val);
         callback(result);
+    };
+
+    this.clearAll = function() {
+        if (useChrome) {
+            chrome.storage.local.clear();
+            return;
+        }
+        localStorage.clear();
     };
 
 });

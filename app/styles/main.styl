@@ -17,6 +17,19 @@ $link_off_color = #bbb
 $cell_trans_percent = 0.0
 $nav_height = 57px
 
+@font-face {
+    font-family: lato;
+    src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+@font-face {
+    font-family: lato-bold;
+    src: url(../fonts/Lato/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: lato-light;
+    src: url(../fonts/Lato/Lato-Light.ttf);
+}
+
 /**
  * Styles
  */
@@ -32,8 +45,8 @@ body
     background-size: cover !important
     -webkit-background-size: cover !important
     color: $text_color
-    font-family: 'Lato', sans-serif
-    overflow-y: scroll
+    font-family: 'lato'
+    overflow-y: auto
     //font-family: 'Roboto', sans-serif
 
 h1, h2, h3
@@ -83,14 +96,10 @@ div, img, span, td, tr {
 
 .card-chain
     //border-bottom: 1px solid #333
+    cursor: pointer
     padding: 5px 0
     word-wrap: break-word
     text-align: center
-
-.card-details-link
-    //margin-right: 2px
-    float: right
-    opacity: 0.5
 
 .card-link
     background-color: $link_off_color
@@ -107,18 +116,34 @@ div, img, span, td, tr {
 .card-title {
     border-top: 1px solid rgba($background_color_top, 0.25);
     color: #eee;
+    cursor: pointer;
     float: left;
     height: 3.0em;
     overflow: hidden;
     padding-top: 5px;
-    text-align: center;
+    text-align: left;
     text-shadow: 1px 1px 0 #000;
     width: 100%;
     word-wrap: break-word;
 }
 
+.card-title-details-link
+    //background: rgba(166, 186, 191, 0.15)
+    //height: 3.0em
+    cursor: pointer
+    opacity: 0.25
+    padding-top: 0.75em
+    text-align: right
+
+.card-title-details-link:hover
+    opacity: 0.5
+
 .card-toggle
+    cursor: pointer
     margin: 0 auto
+
+.cards
+    padding-bottom: 1.0em
 
 .center 
     text-align: center
@@ -306,8 +331,8 @@ div, img, span, td, tr {
 
 .title
     color: #ccc
+    font-family: lato-light
     font-size: 145%
-    font-weight: 100
     letter-spacing: 0.085em
     padding: 7px 0
     text-shadow: 1px 1px 0 #000

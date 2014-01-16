@@ -35,21 +35,23 @@ function ($scope, $location, $routeParams, habitService, chainService) {
         habitService.saveHabit(habit).then(function() {
             $scope.habit = habit;
             $scope.toggledIndex = $index;
-            //$scope.initializeScope();
             $scope.updateStats(habit);
+            //_gaq.push(['_trackEvent', 'detailsPage', 'toggle']);
         });
     };
 
     $scope.confirmDelete = function(habitId) {
+        //_gaq.push(['_trackEvent', 'detailsPage', 'delete']);
         $location.path('/habit/delete/' + habitId);
     };
 
     $scope.confirmReset = function(habitId) {
-        console.log('resetting habit ' + habitId);
+        //_gaq.push(['_trackEvent', 'detailsPage', 'reset']);
         $location.path('/habit/reset/' + habitId);
     };
 
     $scope.goBack = function() {
+        //_gaq.push(['_trackEvent', 'detailsPage', 'back']);
         $location.path('/');
     };
 

@@ -1,18 +1,31 @@
 {
   "name": "Habitual",
   "description": "Habit Tracking Application",
-  "version": "0.1",
+  "version": "0.2.1",
+  "manifest_version": 2,
   "app": {
     "background": {
-      "scripts": ["background.js"]
+      "scripts": [
+        "background.js"
+      ]
     }
   },
   "permissions": [
+    "https://*.google.com/*",
+    "https://*.google-analytics.com/*",
+    "http://*/*",
+    "https://*/*",
     "storage"
   ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["analytics.js"]
+    }
+  ],
   "icons": { 
-      "16": "icons/logo-72.png", 
-      "128": "icons/logo-120.png" 
-  }
+      "128": "icons/habitual-128.png" 
+  },
+  "offline_enabled": true
 }
 

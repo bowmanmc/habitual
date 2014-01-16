@@ -19,11 +19,13 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 
     $scope.resetHabit = function(habitId) {
         habitService.resetHabit(habitId).then(function() {
+            //_gaq.push(['_trackEvent', 'resetPage', 'reset']);
             $location.path('/habit/' + habitId);
         });
     };
 
     $scope.goBack = function() {
+        //_gaq.push(['_trackEvent', 'resetPage', 'back']);
         $location.path('/habit/' + $routeParams.habitId);
     };
 
