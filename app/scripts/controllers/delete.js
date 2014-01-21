@@ -18,13 +18,11 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 
     $scope.deleteHabit = function(habitId) {
         habitService.deleteHabit(habitId).then(function() {
-            //_gaq.push(['_trackEvent', 'deletePage', 'delete']);
             $location.path('/');
         });
     };
 
     $scope.goBack = function() {
-        //_gaq.push(['_trackEvent', 'deletePage', 'back']);
         $location.path('/habit/' + $routeParams.habitId);
     };
 

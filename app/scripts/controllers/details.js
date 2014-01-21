@@ -11,7 +11,7 @@ function ($scope, $location, $routeParams, habitService, chainService) {
 
         habitService.getHabit($routeParams.habitId).then(function(habit) {
             $scope.habit = habit;
-            $scope.chain = chainService.getFilledOutChain(habit).reverse();
+            $scope.chain = chainService.getFilledOutChain(habit);
             $scope.updateStats(habit);
         });
     };
@@ -36,22 +36,18 @@ function ($scope, $location, $routeParams, habitService, chainService) {
             $scope.habit = habit;
             $scope.toggledIndex = $index;
             $scope.updateStats(habit);
-            //_gaq.push(['_trackEvent', 'detailsPage', 'toggle']);
         });
     };
 
     $scope.confirmDelete = function(habitId) {
-        //_gaq.push(['_trackEvent', 'detailsPage', 'delete']);
         $location.path('/habit/delete/' + habitId);
     };
 
     $scope.confirmReset = function(habitId) {
-        //_gaq.push(['_trackEvent', 'detailsPage', 'reset']);
         $location.path('/habit/reset/' + habitId);
     };
 
     $scope.goBack = function() {
-        //_gaq.push(['_trackEvent', 'detailsPage', 'back']);
         $location.path('/');
     };
 

@@ -1,19 +1,18 @@
 'use strict';
 
 angular.module('habitual').controller('ListCtrl',
-function ($scope, $location, habitService, chainService) {
+function ($scope, $location, habitService, chainService, $timeout) {
 
     $scope.toggledIndex = -1;
     $scope.habits = [];
 
     $scope.loadHabits = function() {
         var start = new Date();
-        //_gaq.push(['_trackEvent', 'listPage', 'loadHabitsStart']);
         habitService.getHabits().then(function(habits) {
             var i, habit;
             var len = habits.length;
             if (len < 1) {
-                console.log('Got only ' + len + ' habits...');
+                console.log('Got ' + len + ' habits...');
                 $location.path('/start');
                 if(!$scope.$$phase) $scope.$apply();
             }
@@ -25,9 +24,8 @@ function ($scope, $location, habitService, chainService) {
                 }
             }
             var end = new Date();
-            var dur = moment.duration((end - start)).humanize();
-            console.log('Loading ' + len + ' habits took: ' + dur);
-            //_gaq.push(['_trackEvent', 'listPage', 'loadHabitsEnd']);
+            var dur = moment.duration((end - start));
+            console.log('Loading ' + len + ' habits took: ' + dur + 'ms');
         });
     };
 
@@ -40,7 +38,6 @@ function ($scope, $location, habitService, chainService) {
             habit.completed_today = true;
         }
         var chain = chainService.getFilledOutChain(habit);
-        chain.reverse();
         habit.chain = chain;
     };
 
@@ -54,7 +51,6 @@ function ($scope, $location, habitService, chainService) {
 
     // When a particular list item is clicked
     $scope.loadDetails = function(habitId) {
-        //_gaq.push(['_trackEvent', 'listPage', 'details']);
         $location.path('/habit/' + habitId);
     };
 
@@ -68,7 +64,6 @@ function ($scope, $location, habitService, chainService) {
                 $scope.toggledIndex = index;
                 $scope.fillOutHabit(habit);
                 $scope.habits[index] = habit;
-                //_gaq.push(['_trackEvent', 'listPage', 'toggle']);
             });
         });
     };
@@ -76,4 +71,25 @@ function ($scope, $location, habitService, chainService) {
     // load the habits for the list
     $scope.loadHabits();
     $scope.initDate();
+
+    $scope.prune = function() {
+        console.log('Starting prune...');
+        var start = new Date();
+        habitService.getHabits().then(function(habits) {
+            var i, habit, numRemoved;
+            var len = habits.length;
+            for (i = 0; i < len; i++) {
+                habit = habits[i];
+                numRemoved = chainService.prune(habit);
+                if (numRemoved > 0) {
+                    console.log('Pruned ' + numRemoved + ' links... Saving habit');
+                    habitService.saveHabit(habit);
+                }
+            }
+            var end = new Date();
+            var dur = moment.duration((end - start));
+            console.log('Pruning ' + len + ' habits took ' + dur + 'ms');
+        });
+    };
+    $timeout($scope.prune, 250);
 });

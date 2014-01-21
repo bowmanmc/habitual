@@ -39,7 +39,7 @@ html, body
 body
     //background: $habit_background
     background-color: #000
-    background-image: url('../themes/highway-216090.jpg')
+    background-image: url('../images/highway-216090.jpg')
     background-repeat: no-repeat
     background-attachment: fixed
     background-size: cover !important
@@ -198,6 +198,13 @@ div, img, span, td, tr {
     letter-spacing: 0.085em
     margin: 0.25em 0
 
+.details-day-completed.ng-enter
+  animation: fade_in 350ms linear
+  -webkit-animation: fade_in 350ms linear
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  opacity: 0
+
 .details-day-name
     color: #fff
     display: block
@@ -231,6 +238,7 @@ div, img, span, td, tr {
     background-repeat: no-repeat
     background-position: center
     background-size: 100%
+    cursor: pointer
     margin: auto
     width: 54px
     height: 54px
@@ -285,17 +293,17 @@ div, img, span, td, tr {
     background: linear-gradient(to bottom, $link_on_color 0%,$link_on_color_bottom 100%); /* W3C */
     border: 1px solid $link_off_color
 
-@keyframes nav_fade
+@keyframes fade_in
     0% { opacity:0; }
     100% { opacity:1; }
 
 .nav-loc
 
 .nav-loc.ng-enter
-    animation: nav_fade 350ms linear
-    -webkit-animation: nav_fade 350ms linear
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
+  animation: fade_in 350ms linear
+  -webkit-animation: fade_in 350ms linear
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
 
 .navigation
     background: $navbar_color;

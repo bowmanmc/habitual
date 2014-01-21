@@ -3,16 +3,17 @@
 PLATFORM=chrome
 
 #echo "making distribution..."
-#grunt build
+grunt build
 
 echo "removing previous release..."
 rm -rf release/$PLATFORM/*
 
 echo "copying distribution..."
-#cp -r dist/* release/$PLATFORM/
-cp -r app/* release/$PLATFORM/
+mkdir -p release/$PLATFORM/habitual
+cp -r dist/* release/$PLATFORM/habitual/
+#cp -r app/* release/$PLATFORM/habitual/
 
 echo "copying platform..."
-cp -r platforms/$PLATFORM/* release/$PLATFORM/
+cp -r platforms/$PLATFORM/* release/$PLATFORM/habitual/
 
 echo "done."

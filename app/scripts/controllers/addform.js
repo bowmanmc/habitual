@@ -7,9 +7,6 @@ function ($scope, $location, habitService) {
 
     $scope.saveHabit = function() {
         habitService.createNewHabit($scope.form_habit).then(function(id) {
-            ga('send', 'event', 'automatic', 'addPage', 'new', {
-                'nonInteraction' : true
-            });
             $location.path('/');
         });
     };
@@ -20,11 +17,5 @@ function ($scope, $location, habitService) {
         });
         $location.path('/');
     };
-
-    console.log('ga send pageview /add');
-    ga('send', 'pageview', {
-        'page': '/add',
-        'title': 'Add Form'
-    });
 
 });

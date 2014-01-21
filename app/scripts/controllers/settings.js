@@ -5,7 +5,6 @@ function ($scope, $location, habitService, chainService, storageService) {
 
     $scope.initializeScope = function() {
         console.log('Loading settings page...');
-        //_gaq.push(['_trackEvent', 'settingsPage', 'load']);
     };
 
     $scope.clearAll = function() {
@@ -16,7 +15,7 @@ function ($scope, $location, habitService, chainService, storageService) {
 
     $scope.generateData = function() {
         console.log('Generating test data...');
-        var numHabits = 10;
+        var numHabits = 50;
         for (var i = 0; i < numHabits; i++) {
             console.log('Generating habit [' + i + ']');
             var txt = 'Habit number ' + i + ' is a doozy!';

@@ -46,12 +46,3 @@ app.config(function ($routeProvider) {
 });
 
 angular.module('habitual').value('$anchorScroll', angular.noop);
-
-/**
- * Analytics
- * Chrome App - UA-46632544-2
- **/
-console.log('Calling ga create...');
-ga('create', 'UA-46632544-3', {
-  'cookieDomain': 'auto'
-}); 

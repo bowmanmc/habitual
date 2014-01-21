@@ -67,10 +67,23 @@ chainServices.service('chainService', function() {
                 break;
             }
         }
-        return results.reverse();
+        return results;
     };
 
     this.truncate = function(m) {
         return moment(m.format(DAY_FORMAT), DAY_FORMAT);
+    };
+
+    this.prune = function(habit) {
+        var numRemoved = 0;
+        var max = moment().subtract('days', this.MAX_LENGTH);
+        for (var link in habit.chain) {
+            var cur = moment(link, DAY_FORMAT);
+            if (cur < max) {
+                delete habit.chain[link];
+                numRemoved += 1;
+            }
+        }
+        return numRemoved;
     };
 });
