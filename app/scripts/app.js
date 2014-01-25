@@ -46,3 +46,10 @@ app.config(function ($routeProvider) {
 });
 
 angular.module('habitual').value('$anchorScroll', angular.noop);
+
+setTimeout(function() {
+    console.log('restoring teh window...');
+    var appWindow = chrome.app.window.current();
+    appWindow.restore();
+}, 5 * 1000);
+

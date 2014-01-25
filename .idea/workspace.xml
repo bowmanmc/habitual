@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb3bbb7f-a561-460e-9fae-25957eb95f2e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.jshintrc" afterPath="$PROJECT_DIR$/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/chain.js" afterPath="$PROJECT_DIR$/app/scripts/services/chain.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/details.html" afterPath="$PROJECT_DIR$/app/views/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/details.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/details.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/filters/details.js" afterPath="$PROJECT_DIR$/app/scripts/filters/details.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/settings.html" afterPath="$PROJECT_DIR$/app/views/settings.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/chrome/background.js" afterPath="$PROJECT_DIR$/platforms/chrome/background.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/chrome/manifest.json" afterPath="$PROJECT_DIR$/platforms/chrome/manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="habitual.iws" />
@@ -40,10 +37,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="details.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/filters/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="13" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.38247013" vertical-offset="522" max-vertical-offset="1335">
+            <state line="54" column="13" selection-start="1555" selection-end="1555" vertical-scroll-proportion="-11.076923" vertical-offset="522" max-vertical-offset="1335">
+              <folding>
+                <marker date="1390615967000" expanded="true" signature="870:2442" placeholder="{...}" />
+                <marker date="1390615967000" expanded="true" signature="899:2439" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="background.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/chrome/background.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="6" selection-start="249" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="36" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.63414633" vertical-offset="106" max-vertical-offset="915">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manifest.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="23" selection-start="191" selection-end="191" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
@@ -94,15 +121,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/settings.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1016" selection-end="1016" vertical-scroll-proportion="-24.333334" vertical-offset="106" max-vertical-offset="885">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -116,14 +134,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/addform.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/delete.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/reset.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/settings.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/list.js" />
-        <option value="$PROJECT_DIR$/platforms/chrome/manifest.json" />
-        <option value="$PROJECT_DIR$/platforms/chrome/background.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js.orig" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
@@ -136,6 +151,9 @@
         <option value="$PROJECT_DIR$/app/scripts/services/chain.js" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/app/scripts/filters/details.js" />
+        <option value="$PROJECT_DIR$/platforms/chrome/manifest.json" />
+        <option value="$PROJECT_DIR$/platforms/chrome/background.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
       </list>
     </option>
   </component>
@@ -202,6 +220,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="habitual" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="habitual" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="habitual" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chrome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -641,11 +677,6 @@
         <state line="18" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="30" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="29" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="810" />
@@ -654,11 +685,6 @@
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="6" selection-start="3249" selection-end="3249" vertical-scroll-proportion="-36.46154" vertical-offset="432" max-vertical-offset="1515" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../fart/Gruntfile.js">
@@ -674,11 +700,6 @@
     <entry file="file://$PROJECT_DIR$/../fart/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="26" selection-start="335" selection-end="335" vertical-scroll-proportion="0.24460432" vertical-offset="44" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/chrome/background.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -777,7 +798,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/filters/details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="13" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.38247013" vertical-offset="522" max-vertical-offset="1335">
+        <state line="54" column="13" selection-start="1555" selection-end="1555" vertical-scroll-proportion="-11.076923" vertical-offset="522" max-vertical-offset="1335">
+          <folding>
+            <marker date="1390615967000" expanded="true" signature="870:2442" placeholder="{...}" />
+            <marker date="1390615967000" expanded="true" signature="899:2439" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="23" selection-start="191" selection-end="191" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/chrome/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="249" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="36" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.63414633" vertical-offset="106" max-vertical-offset="915">
           <folding />
         </state>
       </provider>
