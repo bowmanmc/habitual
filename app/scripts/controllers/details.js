@@ -12,19 +12,7 @@ function ($scope, $location, $routeParams, habitService, chainService) {
         habitService.getHabit($routeParams.habitId).then(function(habit) {
             $scope.habit = habit;
             $scope.chain = chainService.getFilledOutChain(habit);
-            $scope.updateStats(habit);
         });
-    };
-
-    $scope.updateStats = function(habit) {
-        var chain = chainService.getFilledOutChain(habit).reverse();
-        $scope.stats = chainService.getChainStats(chain);
-
-        if ($scope.stats.completed_links == $scope.stats.total_links) {
-            $scope.stats.completed_links = 'each';
-        }
-
-        $scope.tracked_from = moment(habit.date_started, 'YYYY-MM-DD').fromNow();
     };
 
     $scope.toggleLink = function(day, $index) {
@@ -35,7 +23,6 @@ function ($scope, $location, $routeParams, habitService, chainService) {
         habitService.saveHabit(habit).then(function() {
             $scope.habit = habit;
             $scope.toggledIndex = $index;
-            $scope.updateStats(habit);
         });
     };
 

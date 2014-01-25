@@ -42,6 +42,11 @@ chainServices.service('chainService', function() {
             stats.total_links += 1;
         }
 
+        stats.percentage = '0';
+        if (stats.total_links > 0) {
+            stats.percentage = Math.round((stats.completed_links / stats.total_links) * 100);
+        }
+
         return stats;
     };
 

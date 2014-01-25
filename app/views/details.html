@@ -8,10 +8,7 @@
     <div class="span12">
 
 <h1 class="details-title">{{habit.text}}</h1>
-<p>
-  You got started on this habit {{tracked_from}},
-  and have completed it on {{stats.completed_links}} of the last {{stats.total_links}} days.
-</p>
+<p>{{ habit | main_summary }}</p>
 
     </div>
   </div><!-- row -->
