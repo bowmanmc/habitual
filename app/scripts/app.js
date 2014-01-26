@@ -5,6 +5,7 @@ var app = angular.module('habitual', [
     'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',
+    'habitual.services.keyboard',
     'habitual.services.storage',
     'ngAnimate',
     'ngRoute',
@@ -45,11 +46,4 @@ app.config(function ($routeProvider) {
     });
 });
 
-angular.module('habitual').value('$anchorScroll', angular.noop);
-
-setTimeout(function() {
-    console.log('restoring teh window...');
-    var appWindow = chrome.app.window.current();
-    appWindow.restore();
-}, 5 * 1000);
-
+//angular.module('habitual').value('$anchorScroll', angular.noop);
