@@ -1,7 +1,7 @@
 {
   "name": "Habitual",
-  "description": "Habit Tracking Application",
-  "version": "0.2.2",
+  "description": "Better Habits, Better You.",
+  "version": "0.2.4",
   "manifest_version": 2,
   "app": {
     "background": {

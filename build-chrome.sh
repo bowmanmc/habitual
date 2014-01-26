@@ -16,4 +16,8 @@ cp -r dist/* release/$PLATFORM/habitual/
 echo "copying platform..."
 cp -r platforms/$PLATFORM/* release/$PLATFORM/habitual/
 
+cd release/$PLATFORM/
+zip -r habitual.zip .
+rm -rf habitual
+
 echo "done."
