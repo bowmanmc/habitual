@@ -11,6 +11,9 @@ keyboardServices.service('keyboardService', function() {
             return;
         }
 
+        console.log('hadling key code: ' + event.keyCode);
+
+        // esc
         if (event.keyCode === 27) {
             this.handleKeyEscape();
         }

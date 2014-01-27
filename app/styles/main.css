@@ -50,6 +50,7 @@ div,img,span,td,tr{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .navigation{background:rgba(8,4,0,0.9);border-bottom:1px solid #ff9502;box-shadow:0 -1px 7px #000;padding:7px 0}
 .pointer{cursor:pointer}
 .right{text-align:right}
+.screensize{background:rgba(166,186,191,0.15);border-radius:.25em;bottom:.75em;cursor:pointer;float:left;padding:.5em;position:fixed;right:.75em;z-index:9000}
 .settings{background:rgba(166,186,191,0.15);color:#eee;border-radius:.35em;margin-top:57px;padding:1.5em;text-shadow:1px 1px 0 #000}
 .settings h1,h2{color:#fff}
 .start{color:#fff6f4;text-shadow:1px 1px 0 #000;padding:1.5em}

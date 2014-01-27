@@ -45,3 +45,15 @@
 </div><!-- container -->
 
 </div>
+
+<div class="screensize"
+     ng-if="showScreenControls()">
+    <a id="screensize-btn"
+       ng-click="toggleScreenSize()"
+       ng-switch="screensize">
+        <i ng-switch-when="fullscreen"
+           class="icon-resize-small icon-white"></i>
+        <i ng-switch-when="regular"
+           class="icon-fullscreen icon-white"></i>
+    </a>
+</div>
