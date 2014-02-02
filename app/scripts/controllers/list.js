@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('habitual').controller('ListCtrl',
-function ($scope, $location, habitService, chainService, keyboardService, $timeout, $window) {
+function ($scope, $location, habitService, chainService, $timeout) {
 
     $scope.toggledIndex = -1;
     $scope.habits = [];
@@ -71,17 +71,6 @@ function ($scope, $location, habitService, chainService, keyboardService, $timeo
     // load the habits for the list
     $scope.loadHabits();
     $scope.initDate();
-
-    /**
-     * list.js is also our "main" controller for the app. Here, we do some
-     * app-level configuration. Not the cleanest, but I can't figure out
-     * how to put some of this into app.js and still get the dependency
-     * injection needed for $window and habitService...
-     */
-    // Hook up keypress eventing
-    angular.element($window).on('keydown', function(e) {
-        keyboardService.handleKeyPress(e);
-    });
 
     // prune old items. These are habits that the user created more than 42
     // days ago. They may have links in their chain that will never be used.

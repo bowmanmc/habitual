@@ -18,6 +18,6 @@ cp -r platforms/$PLATFORM/* release/$PLATFORM/habitual/
 
 cd release/$PLATFORM/
 zip -r habitual.zip .
-rm -rf habitual
+#rm -rf habitual
 
 echo "done."

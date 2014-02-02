@@ -5,7 +5,6 @@ var app = angular.module('habitual', [
     'habitual.filters.details',
     'habitual.services.chain',
     'habitual.services.habit',
-    'habitual.services.keyboard',
     'habitual.services.storage',
     'ngAnimate',
     'ngRoute',
@@ -45,5 +44,3 @@ app.config(function ($routeProvider) {
         redirectTo: '/'
     });
 });
-
-//angular.module('habitual').value('$anchorScroll', angular.noop);

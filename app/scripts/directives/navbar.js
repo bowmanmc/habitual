@@ -9,6 +9,9 @@ navbarModule.directive('hbtNavbar', function() {
         controller: 'NavCtrl',
         link: function (scope, element, attrs) {
             scope.buttonType = attrs.buttonType;
+            if (typeof attrs.hide !== 'undefined') {
+                scope.hidden = true;
+            }
         }
     };
 });
