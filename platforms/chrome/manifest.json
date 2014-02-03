@@ -18,7 +18,8 @@
       "16": "icons/habitual-16.png",
       "48": "icons/habitual-48.png",
       "128": "icons/habitual-128.png",
-      "256": "icons/habitual-256.png"
+      "256": "icons/habitual-256.png",
+      "512": "icons/habitual-512.png"
   },
   "offline_enabled": true
 }

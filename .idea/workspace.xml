@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb3bbb7f-a561-460e-9fae-25957eb95f2e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/chrome/store/promo-1400x560.png" afterPath="$PROJECT_DIR$/platforms/chrome/store/promo-1400x560.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphics/promo-1400x560.psd" afterPath="$PROJECT_DIR$/graphics/promo-1400x560.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/chrome/store/promo-920x680.png" afterPath="$PROJECT_DIR$/platforms/chrome/store/promo-920x680.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphics/promo-920x680.psd" afterPath="$PROJECT_DIR$/graphics/promo-920x680.psd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/chrome/manifest.json" afterPath="$PROJECT_DIR$/platforms/chrome/manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/settings.html" afterPath="$PROJECT_DIR$/app/views/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="habitual.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manifest.json" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="manifest.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="90" selection-end="90" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="465">
+            <state line="21" column="36" selection-start="468" selection-end="468" vertical-scroll-proportion="0.41721854" vertical-offset="0" max-vertical-offset="755">
               <folding />
             </state>
           </provider>
@@ -81,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/settings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="17" selection-start="716" selection-end="716" vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="885">
+            <state line="29" column="8" selection-start="677" selection-end="677" vertical-scroll-proportion="-12.708333" vertical-offset="130" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -137,8 +139,8 @@
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/nav.js" />
-        <option value="$PROJECT_DIR$/platforms/chrome/manifest.json" />
         <option value="$PROJECT_DIR$/app/views/settings.html" />
+        <option value="$PROJECT_DIR$/platforms/chrome/manifest.json" />
       </list>
     </option>
   </component>
@@ -757,16 +759,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
+    <entry file="file://$PROJECT_DIR$/app/views/settings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="90" selection-end="90" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="465">
+        <state line="29" column="8" selection-start="677" selection-end="677" vertical-scroll-proportion="-12.708333" vertical-offset="130" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/settings.html">
+    <entry file="file://$PROJECT_DIR$/platforms/chrome/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="17" selection-start="716" selection-end="716" vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="885">
+        <state line="21" column="36" selection-start="468" selection-end="468" vertical-scroll-proportion="0.41721854" vertical-offset="0" max-vertical-offset="755">
           <folding />
         </state>
       </provider>
