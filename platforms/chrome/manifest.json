@@ -1,7 +1,7 @@
 {
   "name": "Habitual",
   "description": "Better Habits, Better You.",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "manifest_version": 2,
   "app": {
     "background": {
@@ -17,7 +17,8 @@
   "icons": {
       "16": "icons/habitual-16.png",
       "48": "icons/habitual-48.png",
-      "128": "icons/habitual-128.png"
+      "128": "icons/habitual-128.png",
+      "256": "icons/habitual-256.png"
   },
   "offline_enabled": true
 }
